@@ -1,0 +1,13 @@
+﻿@model IEnumerable<OOPS.DTO.Static.DebitCategoryDTO>
+
+<div class="form-group">
+    <label class="control-label">Zimmet Türü</label>
+    <select name="DebitCategoryID" class="form-control">
+        @foreach (var item in Model)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+
+    </select>
+</div>
+

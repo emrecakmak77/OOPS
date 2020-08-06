@@ -1,0 +1,40 @@
+﻿@model List<OOPS.DTO.Static.VisaDocumentRequestDTO>
+
+<div class="tab-pane" id="tab_6">
+    <form action="#" class="horizontal-form">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-blue-madison bold ">Vize Belgesi Taleplerim</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Vize Adı </th>
+                                <th> Açıklama </th>
+                                <th> Seyahat Başlangıç Tarihi </th>
+                                <th> Seyahat Bitiş Tarihi </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <tr>
+                                    <td>@(i+1)</td> 
+                                    <td>@Model[i].VisaType.VisaTypeName</td>
+                                    <td>@Model[i].Description</td>
+                                    <td>@Model[i].TripStartDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@Model[i].TripEndDate.ToString("dd.MM.yyyy")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

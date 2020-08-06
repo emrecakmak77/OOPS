@@ -1,0 +1,83 @@
+﻿@model DebitDTO
+
+<form action="/Debit/AddDebit" method="post">
+    <div class="modal fade" id="debitModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Zimmet Ekle</h4>
+                </div>
+                <div class="modal-body">
+                    <input value="@Model.EmployeeId" name="@Html.NameFor(m => m.EmployeeId)" type="hidden">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    @await Component.InvokeAsync("DebitCategories")
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Seri Numarası</label>
+                                        <input type="text" name="@Html.NameFor(m => m.SerialNumber)" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Veriliş Tarihi </label>
+                                        <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                            <input type="text" name="@Html.NameFor(m => m.DateOfIssue)" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>İade Tarihi </label>
+                                        <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                            <input type="text" name="@Html.NameFor(m => m.ReturnDate)" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Açıklama</label>
+                                        @*<input type="text" name="@Html.NameFor(m => m.Description)" class="form-control" rows="3" margin="auto" style="margin: 0px -4px 0px 0px; height: 90px; width: 543px; text-align:left;">*@
+                                        <textarea name="@Html.NameFor(m => m.Description)" class="form-control" style="resize:vertical" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                        <button type="submit" class="btn green">Kaydet</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+

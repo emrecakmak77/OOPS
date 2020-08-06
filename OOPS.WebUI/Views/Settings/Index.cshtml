@@ -1,0 +1,1679 @@
+﻿
+@model SettingsModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@section pageLevelcss{
+    <link href="../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" type="text/css" />
+}
+<div class="portlet box blue">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i>Ayarlar Sayfası
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"> </a>
+            @*<a href="#portlet-config" data-toggle="modal" class="config"> </a>*@
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="tabbable-custom ">
+            <ul class="nav nav-tabs ">
+                <li class="active">
+                    <a href="#tab_1" data-toggle="tab"> Sistem Ayarları </a>
+                </li>
+                <li>
+                    <a href="#tab_2" data-toggle="tab"> Şirket Bilgileri </a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                        Kurallar
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#tab_3_1" tabindex="-1" data-toggle="tab">Onay Süreçleri</a>
+                        </li>
+                        <li>
+                            <a href="#tab_3_2" tabindex="-1" data-toggle="tab">Çalışma Takvimleri</a>
+                        </li>
+                        <li>
+                            <a href="#tab_3_3" tabindex="-1" data-toggle="tab">Vize Belgesi Süreçleri</a>
+                        </li>
+                        <li>
+                            <a href="#tab_3_4" tabindex="-1" data-toggle="tab">Zimmet Kategorileri</a>
+                        </li>
+                        <li>
+                            <a href="#tab_3_5" tabindex="-1" data-toggle="tab">İşten Ayrılma Nedenleri</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="egitimler_tab">
+                    <a href="#tab_4" data-toggle="tab"> Eğitimler </a>
+                </li>
+                <li>
+                    <a href="#tab_5" data-toggle="tab"> Tatil Takvimleri </a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                        Veri Aktar
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#tab_6_1" tabindex="-1" data-toggle="tab"> Özlük Bilgileri </a>
+                        </li>
+                        <li>
+                            <a href="#tab_6_2" tabindex="-1" data-toggle="tab"> İzin Günleri </a>
+                        </li>
+                        <li>
+                            <a href="#tab_6_3" tabindex="-1" data-toggle="tab"> Zimmet Bilgileri </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1">
+                    <div class="tabbable-custom ">
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a href="#tab_1-1" data-toggle="tab"> Gelişmiş Ayarlar </a>
+                            </li>
+                            <li>
+                                <a href="#tab_1-2" data-toggle="tab"> E-posta Ayarları </a>
+                            </li>
+                            <li>
+                                <a href="#tab_1-3" data-toggle="tab"> Bildirim Ayarları </a>
+                            </li>
+                            <li>
+                                <a href="#tab_1-4" data-toggle="tab"> Erişim Ayarları </a>
+                            </li>
+                            <li>
+                                <a href="#tab_1-5" data-toggle="tab"> Güvenlik Ayarları </a>
+                            </li>
+                            <li>
+                                <a href="#tab_1-6" data-toggle="tab"> Talep Ayarları </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1-1">
+                                <div class="col-md-6 padding-tb-20 font-sm">
+                                    <div class="form-group">
+                                        <label class="control-label">İşe alım yöneticisi</label>
+                                        <select class="form-control font-sm" id="form_control_1">
+                                            <option value=""></option>
+                                            <option value="1">Çalışan 1</option>
+                                            <option value="2">Çalışan 2</option>
+                                            <option value="3">Çalışan 3</option>
+                                            <option value="4">Çalışan 4</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Vize süreçleri yöneticisi</label>
+                                        <select class="form-control" id="form_control_1">
+                                            <option value=""></option>
+                                            <option value="1">Çalışan 1</option>
+                                            <option value="2">Çalışan 2</option>
+                                            <option value="3">Çalışan 3</option>
+                                            <option value="4">Çalışan 4</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Şube yerine kullanılacak birimi seç</label>
+                                        <select class="form-control input-sm">
+                                            <option></option>
+                                            <option>Şirket</option>
+                                            <option>Şube</option>
+                                            <option>Departman</option>
+                                            <option>Unvan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Unvan yerine kullanılacak birimi seç</label>
+                                        <select class="form-control input-sm">
+                                            <option></option>
+                                            <option>Şirket</option>
+                                            <option>Şube</option>
+                                            <option>Departman</option>
+                                            <option>Unvan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Çalışanların görüntüleyebileceği birim seviyesi</label>
+                                        <select class="form-control input-sm">
+                                            <option></option>
+                                            <option>Şirket</option>
+                                            <option>Şube</option>
+                                            <option>Departman</option>
+                                            <option>Unvan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group  padding-tb-20 font-sm">
+                                        <label class="control-label">Deneme süresi hatırlatma 1. hatırlatma</label>
+                                        <select class="form-control input-sm">
+                                            @{
+                                                for (int i = 1; i < 13; i++)
+                                                {
+                                                    <option>
+                                                        @i
+                                                        .ay
+                                                    </option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group padding-tb-20 font-sm">
+                                        <label class="control-label">2. hatırlatma</label>
+                                        <select class="form-control input-sm">
+                                            @{
+                                                for (int i = 1; i < 13; i++)
+                                                {
+                                                    <option>
+                                                        @i
+                                                        .ay
+                                                    </option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group font-sm">
+                                        <label class="control-label">Eğitim bitişi hatırlatma süresi</label>
+                                        <select class="form-control input-sm">
+                                            <option>Yok</option>
+                                            @{
+                                                for (int i = 1; i < 13; i++)
+                                                {
+                                                    <option>
+                                                        @i
+                                                        .ay
+                                                    </option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group font-sm">
+                                        <label class="control-label">Departman yerine kullanılacak birimi seçin</label>
+                                        <select class="form-control input-sm">
+                                            <option></option>
+                                            <option>Şirket</option>
+                                            <option>Şube</option>
+                                            <option>Departman</option>
+                                            <option>Unvan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group padding-tb-20 font-xs">
+                                        <label class="control-label">Reddedilmiş tarihlere yeni izin eklenebilir</label>
+                                        <input type="checkbox" checked class="make-switch" id="test" data-size="small">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane body" id="tab_1-2">
+                                <div class="col-md-6">
+                                    <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                        <div class="col-md-9">
+                                            <label class="control-label">Harcama eklendiğinde çalışanı e-posta ile bilgilendir</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" checked class="make-switch" id="test" data-size="small">
+                                        </div>
+                                    </div>
+                                    <div class="form-group padding-tb-10 font-sm">
+                                        <div class="col-md-9">
+                                            <label class="control-label">Fazla mesai eklendiğinde çalışanı e-posta ile bilgilendir</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" checked class="make-switch" id="test" data-size="small">
+                                        </div>
+                                    </div>
+                                    <div class="form-group padding-tb-10 font-sm">
+                                        <div class="col-md-9">
+                                            <label class="control-label">Avans eklendiğinde çalışanı e-posta ile bilgilendir</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" checked class="make-switch" id="test" data-size="small">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group padding-tb-10 font-sm">
+                                        <div class="col-md-9">
+                                            <label class="control-label">Prim eklendiğinde çalışanı e-posta ile bilgilendir</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" checked class="make-switch" id="test" data-size="small">
+                                        </div>
+                                    </div>
+                                    <div class="form-group padding-tb-10 font-sm">
+                                        <div class="col-md-9">
+                                            <label class="control-label">İkramiye eklendiğinde çalışanı e-posta ile bilgilendir</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" checked class="make-switch" id="test" data-size="small">
+                                        </div>
+                                    </div>
+                                    <div class="form-group padding-tb-10 font-sm">
+                                        <div class="col-md-9">
+                                            <label class="control-label">İzin eklendiğinde çalışana gönderilen e-posta bilgilendirmesini kapat</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" checked class="make-switch" id="test" data-size="small">
+                                        </div>
+                                    </div>
+                                    <div class="form-group padding-tb-10 font-sm">
+                                        <div class="col-md-9">
+                                            <label class="control-label">Ekstra izin günü eklendiğinde çalışanı e-posta ile bilgilendir</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" checked class="make-switch" id="test" data-size="small">
+                                        </div>
+                                    </div>
+                                    <div class="form-group padding-tb-10 font-sm">
+                                        <div class="col-md-9">
+                                            <label class="control-label">İzin onayı bilgilendirme e-postasına izin formu eklensin</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" checked class="make-switch" id="test" data-size="small">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 padding-tb-20 font-sm">
+                                    <div class="form-group">
+                                        <label class="control-label">Haftalık bildirimleri göndereceğimiz e-posta adresiniz.</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_1-3">
+                                <div class="col-md-5 padding-tb-20 margin-right-10">
+                                    <div class="form-group form-md-line-input has-success">
+                                        <div class="input-icon">
+                                            <input type="text" class="form-control">
+                                            <label for="form_control_1" style="font-size:12px; color:black; font-weight:bold">Slack/Mattermost Web Hook</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 padding-tb-20">
+                                    <div class="form-group form-md-line-input has-success">
+                                        <div class="input-icon">
+                                            <input type="text" class="form-control">
+                                            <label for="form_control_1" style="font-size:12px; color:black; font-weight:bold">Slack/Mattermost Kanalı</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group padding-tb-10 font-sm">
+                                        <div class="col-md-9">
+                                            <label>Onaylanan izin talepleri</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" checked class="make-switch" id="test" data-size="small">
+                                        </div>
+                                    </div>
+                                    <div class="form-group padding-tb-10 font-sm">
+                                        <div class="col-md-9">
+                                            <label>Haftalık özet</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" checked class="make-switch" id="test" data-size="small">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_1-4">
+                                @*Ana Sayfa form'u*@
+                                <div class="col-md-6 padding-tb-20">
+                                    <div class="portlet-title">
+                                        <div class="caption font-red-sunglo">
+                                            <i class="icon-settings font-red-sunglo"></i>
+                                            <span class="caption-subject bold uppercase"> Ana Sayfa</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="portlet-body form">
+                                        <form role="form">
+                                            <div class="form-body">
+                                                <div class="form-group padding-tb-10 font-sm">
+                                                    <label class="control-label">Çalışanların anasayfada erişebilecekleri alanlar</label>
+                                                    <div class="input-group">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding-tb-10 font-sm">
+                                                    <div class="col-md-9">
+                                                        <label class="control-label">Çalışan dağılımı</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding-tb-10 font-sm">
+                                                    <div class="col-md-9">
+                                                        <label class="control-label">Yaklaşan izinler</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding-tb-10 font-sm">
+                                                    <div class="col-md-9">
+                                                        <label class="control-label">Yaklaşlan doğum günleri</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding-tb-10 font-sm">
+                                                    <div class="col-md-9">
+                                                        <label class="control-label">Etkinlik takvimi</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="portlet-title">
+                                        <div class="caption font-red-sunglo">
+                                            <i class="icon-settings font-red-sunglo"></i>
+                                            <span class="caption-subject bold uppercase"> Hesap</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="portlet-body form">
+                                        <form role="form">
+                                            <div class="form-body">
+                                                <div class="form-group font-xs">
+                                                    <label class="control-label">Çalışanların "Hesabım" sayfasında erişebilecekleri alanlar</label>
+                                                    <div class="input-group">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding-tb-10 font-xs">
+                                                    <div class="col-md-9">
+                                                        <label class="control-label">Dosyalar</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding-tb-10 font-xs">
+                                                    <div class="col-md-9">
+                                                        <label class="control-label">Zimmetler</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 padding-tb-20">
+                                    <div class="portlet-title">
+                                        <div class="caption font-red-sunglo">
+                                            <i class="icon-settings font-red-sunglo"></i>
+                                            <span class="caption-subject bold uppercase"> Çalışanlar</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="portlet-body form">
+                                        <form role="form">
+                                            <div class="form-body">
+                                                <div class="form-group font-xs">
+                                                    <label class="control-label">Çalışanların uygulama içinde erişebilecekleri alanlar</label>
+                                                    <div class="input-group">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding-tb-10 font-xs">
+                                                    <div class="col-md-9">
+                                                        <label class="control-label">Çalışanların telefon numaraları</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding-tb-10 font-xs">
+                                                    <div class="col-md-9">
+                                                        <label class="control-label">Organizasyon şeması</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding-tb-10 font-xs">
+                                                    <div class="col-md-9">
+                                                        <label class="control-label">Özel alanlar</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="portlet-title">
+                                        <div class="caption font-red-sunglo">
+                                            <i class="icon-settings font-red-sunglo"></i>
+                                            <span class="caption-subject bold uppercase"> Takvim</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="portlet-body form">
+                                        <form role="form">
+                                            <div class="form-body">
+                                                <div class="form-group font-xs">
+                                                    <label class="control-label">Çalışanların takvim erişim alanları</label>
+                                                    <div class="input-group">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding-tb-10 font-xs">
+                                                    <div class="col-md-9">
+                                                        <label>Takvim</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding-tb-10 font-xs">
+                                                    <div class="col-md-9">
+                                                        <label class="control-label">Takvimdeki tüm izinler</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                @*Çalışanlar form'u açılacak *@
+                            </div>
+                            <div class="tab-pane" id="tab_1-5">
+                                <div class="tab-pane active" id="tab_1-1">
+                                    <div class="col-md-6 padding-tb-20">
+                                        <div class="portlet-title">
+                                            <div class="caption font-red-sunglo">
+                                                <i class="icon-settings font-red-sunglo"></i>
+                                                <span class="caption-subject bold uppercase"> Parola Politikası</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group font-sm">
+                                            <label class="control-label">Minimum Parola uzunluğu</label>
+                                            <select class="form-control input-sm">
+                                                <option></option>
+                                                @{
+                                                    for (int i = 8; i < 21; i++)
+                                                    {
+                                                        <option>@i</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group padding-tb-10 font-xs">
+                                            <div class="col-md-9">
+                                                <label class="control-label">Parola içinde en az 1 küçük ve 1 büyük harf olsun</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                            </div>
+                                        </div>
+                                        <div class="form-group padding-tb-10 font-xs">
+                                            <div class="col-md-9">
+                                                <label class="control-label">Parola içinde en az 1 rakam olsun</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                            </div>
+                                        </div>
+                                        <div class="form-group padding-tb-10 font-xs">
+                                            <div class="col-md-9">
+                                                <label class="control-label">Parola içinde en az 1 özel karakter olsun</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                            </div>
+                                        </div>
+                                        <div class="form-group padding-tb-10 font-xs">
+                                            <div class="col-md-9">
+                                                <label class="control-label">Tarayıcı kapandığında oturumu kapat</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_1-6">
+                                <div class="tab-pane active" id="tab_1-1">
+                                    <div class="col-md-6 padding-tb-20">
+                                        <div class="form-group padding-tb-10 font-xs">
+                                            <div class="col-md-9">
+                                                <label class="control-label">Fazla mesai talebini kapat</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                            </div>
+                                        </div>
+                                        <div class="form-group padding-tb-10 font-xs">
+                                            <div class="col-md-9">
+                                                <label class="control-label">Avans talebini kapat</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                            </div>
+                                        </div>
+                                        <div class="form-group padding-tb-10 font-xs">
+                                            <div class="col-md-9">
+                                                <label class="control-label">Vize belgesi talebini kapat</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                            </div>
+                                        </div>
+                                        <div class="form-group padding-tb-10 font-xs">
+                                            <div class="col-md-9">
+                                                <label class="control-label">Harcama talebini kapat</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                            </div>
+                                        </div>
+                                        <div class="form-group padding-tb-10 font-xs">
+                                            <div class="col-md-9">
+                                                <label class="control-label">İzin talebini kapat</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 padding-tb-20">
+                                        <div class="form-group padding-tb-10 font-xs">
+                                            <div class="col-md-9">
+                                                <label class="control-label">Taksitli avans talebini kapat</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                            </div>
+                                        </div>
+                                        <div class="form-group padding-tb-10 font-xs">
+                                            <div class="col-md-9">
+                                                <label class="control-label">Geçmişe yönelik izin talebini kapat</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="make-switch" id="test" data-size="small">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_2">
+                    <div class="col-md-4">
+                        <div class="portlet-title padding-tb-20">
+                            <div class="form-group font-sm">
+                                <label class="control-label">Şirket yapısı</label>
+                            </div>
+                            <div class="form-group font-sm">
+                                <label class="control-label">Kullanmak istediğiniz şirket yapısı belirleyin</label>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="note note-info">
+                                <h4 class="block"><i class="fa fa-lock"> Şirket</i></h4>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="note note-info">
+                                <h4 class="block"><i class="fa">Şube</i></h4>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="note note-info">
+                                <h4 class="block"><i class="fa">Departman</i></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="portlet-body">
+                            <div class="mt-element-list padding-tb-20">
+                                <div class="mt-list-container list-todo">
+                                    <div class="list-todo-line red "></div>
+                                    <ul>
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-icon bg-white font-green-meadow">
+                                                <i class="fa fa-sticky-note-o"></i>
+                                            </div>
+                                            <div class="list-todo-item green-meadow">
+                                                <a class="list-toggle-container font-white" data-toggle="collapse" href="#task-2-2" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">Şirket</div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-2-2">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+                                                            <div class="task-icon">
+                                                                <a href="javascript:;">
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="task-content">
+                                                                <h4 class="uppercase bold">
+                                                                    <a href="javascript:;">@Model.CompanyBranch.Company.CompanyName</a>
+                                                                </h4>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-icon bg-white font-yellow-crusta">
+                                                <i class="fa fa-sticky-note-o"></i>
+                                            </div>
+                                            <div class="list-todo-item yellow-crusta">
+                                                <a class="list-toggle-container" data-toggle="collapse" href="#task-3-2" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">Şube</div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-3-2">
+                                                    @for (int i = 0; i < Model.Company.CompanyBranches.Count; i++)
+                                                    {
+                                                        <ul>
+                                                            <li class="task-list-item done">
+                                                                <div class="task-icon">
+                                                                    <a href="javascript:;">
+                                                                        <i class="fa fa-star-half-o"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="task-status">
+                                                                    <a class="btn font-red" onclick="showAlertB(@Model.Company.CompanyBranches[i].Id)">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </a>
+                                                                    @*<a class="task-trash done mt-sweetalert" data-title="Silmek istediğinizden eminmisiniz ?" data-type="error" data-allow-outside-click="true" data-show-confirm-button="true" data-show-cancel-button="true"
+                                                                           data-cancel-button-class="btn-danger" data-confirm-button-text="Sil" data-cancel-button-text="İptal" data-confirm-button-class="btn-info">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>*@
+                                                                </div>
+                                                                <div class="task-content">
+                                                                    <h4 class="uppercase bold">
+                                                                        <a href="javascript:;">@Model.Company.CompanyBranches[i].BranchName</a>
+                                                                    </h4>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    }
+
+                                                    <div class="task-footer bg-grey">
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <a class="task-add" href="#BranchModal" data-toggle="modal">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-icon bg-white font-red-flamingo">
+                                                <i class="fa fa-sticky-note-o"></i>
+                                            </div>
+                                            <div class="list-todo-item red-flamingo">
+                                                <a class="list-toggle-container" data-toggle="collapse" href="#task-3-3" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">Departman</div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-3-3">
+                                                    @for (int i = 0; i < Model.Company.CompanyDepartments.Count; i++)
+                                                    {
+                                                        <ul>
+                                                            <li class="task-list-item done">
+                                                                <div class="task-icon">
+                                                                    <a href="javascript:;">
+                                                                        <i class="fa fa-star-half-o"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="task-status">
+                                                                    <a class="btn font-red" onclick="showAlertC(@Model.Company.CompanyDepartments[i].Id)">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </a>
+                                                                    @*<a class="task-trash done mt-sweetalert" data-title="Silmek istediğinizden eminmisiniz ?" data-type="error" data-allow-outside-click="true" data-show-confirm-button="true" data-show-cancel-button="true"
+                                                                           data-cancel-button-class="btn-danger" data-confirm-button-text="Sil" data-cancel-button-text="İptal" data-confirm-button-class="btn-info">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>*@
+                                                                </div>
+                                                                <div class="task-content">
+                                                                    <h4 class="uppercase bold">
+                                                                        <a href="javascript:;">@Model.Company.CompanyDepartments[i].Name</a>
+                                                                    </h4>
+                                                                </div>
+                                                            </li>
+
+                                                        </ul>
+                                                    }
+                                                    <div class="task-footer bg-grey">
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <a class="task-add" href="#DepartmentModal" data-toggle="modal">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Şirket bilgileri kısmı Semih brenchinden alınacak *@
+                <div class="tab-pane" id="tab_3_1">
+                    <div class="portlet-body">
+                        <div class="col-md-5">
+                            <div class="inputs padding-tb-20">
+                                <div class="portlet-input input-inline input-small ">
+                                    <div class="input-icon right">
+                                        <i class="icon-magnifier"></i>
+                                        <input type="text" class="form-control form-control-solid input-circle" placeholder="search...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+
+                        </div>
+                        <div class="col-md-2 padding-tb-20">
+                            <a href="javascript:;" class="btn green  btn-circle"> Yeni Süreç Ekle </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <label class="control-label sbold">
+                            Varsayılan Onay Süreci
+                        </label>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_3_2">
+                    <div class="portlet-body">
+                        <div class="col-md-5">
+                            <div class="inputs padding-tb-20">
+                                <div class="portlet-input input-inline input-small ">
+                                    <div class="input-icon right">
+                                        <i class="icon-magnifier"></i>
+                                        <input type="text" class="form-control form-control-solid input-circle" placeholder="search...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+
+                        </div>
+                        <div class="col-md-2 padding-tb-20">
+                            <a href="javascript:;" class="btn green  btn-circle"> Yeni Süreç Ekle </a>
+                        </div>
+                        <label class="control-label sbold">
+                            Varsayılan Onay Süreci
+                        </label>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="mt-element-list">
+                            <div class="mt-list-container list-todo">
+                                <div class="list-todo-line red"></div>
+                                <ul>
+                                    <li class="mt-list-item">
+                                        <div class="list-todo-icon bg-white font-blue-steel">
+                                            <i class="fa fa-database"></i>
+                                        </div>
+                                        <div class="list-todo-item blue-steel">
+                                            <a class="list-toggle-container font-white" data-toggle="collapse" href="#task-1-2" aria-expanded="false">
+                                                <div class="list-toggle done uppercase">
+                                                    <div class="list-toggle-title bold">Genel Çalışma Tablosu</div>
+                                                    <div class="badge badge-default pull-right bold">3</div>
+                                                </div>
+                                            </a>
+                                            <div class="task-list panel-collapse collapse in" id="task-1-2">
+                                                <ul>
+                                                    <li class="task-list-item">
+                                                        <div class="task-icon">
+                                                            <a href="javascript:;">
+                                                                <i class="fa fa-table"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="task-content">
+                                                            <div class="col-md-12 padding-tb-10">
+                                                                <label class="control-label">Pazartesi</label><br />
+                                                                <label class="sbold">Mesai Saatleri : 09:00 - 18:00 Yemek Saatleri : 12:30 - 13:30</label>
+                                                            </div>
+                                                            <div class="col-md-12 padding-tb-10">
+                                                                <label class="control-label">Salı</label><br />
+                                                                <label class="control-label sbold">Mesai Saatleri : 09:00 - 18:00 Yemek Saatleri : 12:30 - 13:30</label>
+                                                            </div>
+                                                            <div class="col-md-12 padding-tb-10">
+                                                                <label class="control-label">Çarşamba</label><br />
+                                                                <label class="control-label sbold">Mesai Saatleri : 09:00 - 18:00 Yemek Saatleri : 12:30 - 13:30</label>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_3_3">
+                    <div class="portlet-body">
+                        <div action="#" class="horizontal-form">
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <span class="caption-subject font-blue-madison bold">
+                                            <i class="fa fa-paper-plane"></i>
+                                            Vize Belgesi Süreçleri
+                                        </span>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                            <label class="btn sbold green btn-outline btn-circle btn-sm">
+                                                <input type="radio" name="options" class="toggle">Yeni Süreç Ekleyin
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="table-scrollable">
+                                        <table class="table table-hover table-light">
+                                            <thead>
+                                                <tr>
+                                                    <th> </th>
+                                                    <th> Dosya Adı </th>
+                                                    <th> Dosya açıklaması </th>
+                                                    <th> Kayıtlı dosya </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td> Çalışan Talep Edecek </td>
+                                                    <td> Test </td>
+                                                    <td> Test </td>
+                                                    <td> Test </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Burası Doldurulacak *@
+                <div class="tab-pane" id="tab_3_4">
+
+                </div>
+                <div class="tab-pane" id="tab_3_5">
+                    <div class="portlet-body">
+                        <div class="portlet light">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <span class="caption-subject font-blue-madison bold">
+                                        <i class="fa fa-paper-plane"></i>
+                                        İşten Ayrılma Nedenleri
+                                    </span>
+                                </div>
+                                <div class="actions">
+                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                        <label class="btn sbold green btn-outline btn-circle btn-sm">
+                                            <input type="radio" name="options" class="toggle">Yeni Ekle
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane body">
+                        <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                            <div class="col-md-12">
+                                <label class="control-label">01 - Deneme süreli iş sözleşmesinin işverence feshi</label>
+                            </div>
+                        </div>
+                        <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                            <div class="col-md-12">
+                                <label class="control-label">02 - Deneme süreli iş sözleşmesinin işçi tarafından feshi</label>
+                            </div>
+                        </div>
+                        <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                            <div class="col-md-12">
+                                <label class="control-label">03 - Belirsiz süreli iş sözleşmesinin işçi tarafından feshi (istifa)</label>
+                            </div>
+                        </div>
+                        <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                            <div class="col-md-12">
+                                <label class="control-label">04 - Belirsiz süreli iş sözleşmesinin işveren tarafından haklı sebep bildirilmeden feshi</label>
+                            </div>
+                        </div>
+                        <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                            <div class="col-md-12">
+                                <label class="control-label">05 - Belirli süreli iş sözleşmesinin sona ermesi</label>
+                            </div>
+                        </div>
+                        <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                            <div class="col-md-12">
+                                <label class="control-label">08 - Emeklilik (yaşlılık) veya toptan ödeme nedeniyle</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_4">
+                    <div class="portlet light portlet-fit ">
+                        @* Editable Datatable *@
+                        <div action="#" class="horizontal-form">
+                            <div class="portlet light ">
+                                <div class="portlet-body">
+                                    <div class="col-md-10">
+
+                                    </div>
+                                    <button type="button"
+                                            class="btn green  btn-circle"
+                                            data-toggle="modal" data-target="#egModal">
+                                        Yeni Eğitim Ekle
+                                    </button>
+
+                                    @await Component.InvokeAsync("SystemEducations", new { companyId = Model.SystemEducation.CompanyID })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_5">
+                    <div class="portlet light portlet-fit ">
+                        <div action="#" class="horizontal-form">
+                            <div class="portlet light ">
+                                <div class="portlet-body">
+                                    <div class="table-scrollable">
+                                        <table class="table table-hover table-light">
+                                            <thead>
+                                                <tr>
+                                                    <th>Adı</th>
+                                                    <th>Açıklama</th>
+                                                    <th>Birimler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td> Türk resmi tatil takvimi </td>
+                                                    <td> - </td>
+                                                    <td>
+                                                        yms9102
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_6_1">
+                    <div class="portlet-body">
+                        <div class="portlet light">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <span class="caption-subject font-blue-madison bold">
+                                        <i class="fa fa-paper-plane"></i>
+                                        Özlük Bilgileri Veri Aktarımı
+                                    </span>
+                                </div>
+                                <div class="actions">
+                                    <span class="btn green fileinput-button">
+                                        <i class="fa fa-plus"></i>
+                                        <span> Add files... </span>
+                                        <input type="file" name="files[]" multiple="">
+                                    </span>
+                                </div>
+                                <div class="actions">
+                                    <span class="btn green fileinput-button">
+                                        <i class="fa fa-plus"></i>
+                                        <span> Add files... </span>
+                                        <input type="file" name="files[]" multiple="">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane body">
+                        <div class="col-md-8">
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">Tüm çalışanları tek seferde yüklemek için:</label>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">1. Aktarım şablonunu indirin.</label>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">2. İndirdiğiniz şablonu kendi verilerinizle doldurun ve aşağıdaki adımları kontrol edin.</label>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Tarihler GG/AA/YYYY şeklinde olmalıdır. (örneğin 29/10/1923)
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Yüklediğiniz Excel dosyasındaki sabitler sayfasının kilitli (protected) olmasına dikkat edin, aksi taktirde sistem hata verecektir.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Yüklediğiniz Excel dosyasındaki formüllerin gözardı edilerek sadece hücre içindeki düz verilerin kullanılacağını unutmayın.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Kilitli (protected) sekmeler yoksayılarak diğer sekmelerdeki zimmetler tek seferde aktarılacaktır.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Eşleştirme ekranında örnek olarak ilk 10 izin gösterilecektir.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">
+                                        3. Adımların hepsini kontrol ettiğinize eminseniz dosyayı sisteme yükleyebilirsiniz
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_6_2">
+                    <div class="portlet-body">
+                        <div class="portlet light">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <span class="caption-subject font-blue-madison bold">
+                                        <i class="fa fa-paper-plane"></i>
+                                        İzin Bilgileri Veri Aktarımı
+                                    </span>
+                                </div>
+                                <div class="actions">
+                                    <span class="btn green fileinput-button">
+                                        <i class="fa fa-plus"></i>
+                                        <span> Add files... </span>
+                                        <input type="file" name="files[]" multiple="">
+                                    </span>
+                                </div>
+                                <div class="actions">
+                                    <span class="btn green fileinput-button">
+                                        <i class="fa fa-plus"></i>
+                                        <span> Add files... </span>
+                                        <input type="file" name="files[]" multiple="">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane body">
+                        <div class="col-md-8">
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">Tüm çalışanları tek seferde yüklemek için:</label>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">1. Aktarım şablonunu indirin.</label>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">2. İndirdiğiniz şablonu kendi verilerinizle doldurun ve aşağıdaki adımları kontrol edin.</label>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Tarihler GG/AA/YYYY şeklinde olmalıdır. (örneğin 29/10/1923)
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Yüklediğiniz Excel dosyasındaki sabitler sayfasının kilitli (protected) olmasına dikkat edin, aksi taktirde sistem hata verecektir.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Yüklediğiniz Excel dosyasındaki formüllerin gözardı edilerek sadece hücre içindeki düz verilerin kullanılacağını unutmayın.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Kilitli (protected) sekmeler yoksayılarak diğer sekmelerdeki zimmetler tek seferde aktarılacaktır.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Eşleştirme ekranında örnek olarak ilk 10 izin gösterilecektir.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">
+                                        3. Adımların hepsini kontrol ettiğinize eminseniz dosyayı sisteme yükleyebilirsiniz
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_6_3">
+                    <div class="portlet-body">
+                        <div class="portlet light">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <span class="caption-subject font-blue-madison bold">
+                                        <i class="fa fa-paper-plane"></i>
+                                        Zimmet Bilgileri Veri Aktarımı
+                                    </span>
+                                </div>
+                                <div class="actions">
+                                    <span class="btn green fileinput-button">
+                                        <i class="fa fa-plus"></i>
+                                        <span> Add files... </span>
+                                        <input type="file" name="files[]" multiple="">
+                                    </span>
+                                </div>
+                                <div class="actions">
+                                    <span class="btn green fileinput-button">
+                                        <i class="fa fa-plus"></i>
+                                        <span> Add files... </span>
+                                        <input type="file" name="files[]" multiple="">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane body">
+                        <div class="col-md-8">
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">Tüm çalışanları tek seferde yüklemek için:</label>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">1. Aktarım şablonunu indirin.</label>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">2. İndirdiğiniz şablonu kendi verilerinizle doldurun ve aşağıdaki adımları kontrol edin.</label>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Tarihler GG/AA/YYYY şeklinde olmalıdır. (örneğin 29/10/1923)
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Yüklediğiniz Excel dosyasındaki sabitler sayfasının kilitli (protected) olmasına dikkat edin, aksi taktirde sistem hata verecektir.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Yüklediğiniz Excel dosyasındaki formüllerin gözardı edilerek sadece hücre içindeki düz verilerin kullanılacağını unutmayın.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Kilitli (protected) sekmeler yoksayılarak diğer sekmelerdeki zimmetler tek seferde aktarılacaktır.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            Eşleştirme ekranında örnek olarak ilk 10 izin gösterilecektir.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group padding-tb-10 font-sm" style="margin-top:20px">
+                                <div class="col-md-12">
+                                    <label class="control-label">
+                                        3. Adımların hepsini kontrol ettiğinize eminseniz dosyayı sisteme yükleyebilirsiniz
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<form asp-controller="Companies" asp-action="CompanyBranchAdd" method="post">
+    <input asp-for="@Model.CompanyBranch.CompanyID" hidden />
+    <div class="modal fade" id="BranchModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <div class="fa-item col-md-6 col-md-4">
+                        Şube Ekle
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-body">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Şube Adı</label>
+                                        <input asp-for="@Model.CompanyBranch.BranchName" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Şirket Adı </label>
+                                        <input asp-for="@Model.CompanyBranch.Company.CompanyName" class="form-control" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Telefon</label>
+                                        <input type="number" asp-for="@Model.CompanyBranch.Phone" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Mersis No</label>
+                                        <input type="number" asp-for="@Model.CompanyBranch.MersisNumber" class="form-control">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn green">Kaydet</button>
+                </div>
+
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</form>
+<form asp-controller="Companies" asp-action="CompanyDepartmentAdd" method="post">
+    <input asp-for="@Model.CompanyDepartment.CompanyID" hidden />
+    <div class="modal fade" id="DepartmentModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <div class="fa-item col-md-6 col-md-4">
+                        Departman Ekle
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-body">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Departman Adı</label>
+                                        <input asp-for="@Model.CompanyDepartment.Name" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Şirket Adı </label>
+                                        <input asp-for="@Model.CompanyBranch.Company.CompanyName" class="form-control" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                @*<div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Telefon</label>
+                                            <input asp-for="@Model.CompanyBranch.Phone" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Mersis No</label>
+                                            <input asp-for="@Model.CompanyBranch.MersisNumber" class="form-control">
+                                        </div>
+                                    </div>*@
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn green">Kaydet</button>
+                </div>
+
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</form>
+
+<form role="form" asp-action="AddSystemEducation" asp-controller="Settings" method="post">
+
+    <div class="modal fade" id="egModal" >
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Eğitim Düzenleyin</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times; </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Eğitim Adı</label>
+                        <input type="text" class="form-control" id="inputEmail4" asp-for="@Model.SystemEducation.Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Eğitmen</label>
+                        <input type="text" class="form-control" id="inputEmail4" asp-for="@Model.SystemEducation.EducatorName">
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Başlangıç Tarihi </label>
+                                <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d" asp-for="StartDate">
+                                    <input type="text" class="form-control" readonly="" asp-for="@Model.SystemEducation.StartDate">
+                                    <span class="input-group-btn">
+                                        <button class="btn default" type="button">
+                                            <i class="fa fa-calendar"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Saat</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control timepicker timepicker-24" asp-for="@Model.SystemEducation.StartTime">
+                                    <span class="input-group-btn">
+                                        <button class="btn default" type="button">
+                                            <i class="fa fa-clock-o"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Bitiş Tarihi  </label>
+                                <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                    <input type="text" class="form-control" readonly="" asp-for="@Model.SystemEducation.EndDate">
+                                    <span class="input-group-btn">
+                                        <button class="btn default" type="button">
+                                            <i class="fa fa-calendar"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Saat</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control timepicker timepicker-24" asp-for="@Model.SystemEducation.EndTime">
+                                    <span class="input-group-btn">
+                                        <button class="btn default" type="button">
+                                            <i class="fa fa-clock-o"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Eğitim Veren Şirketin Detayları</label>
+                                <input type="text" class="form-control" asp-for="@Model.SystemEducation.EducatorCompany">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Verildiği yer</label>
+                                <input type="text" class="form-control" asp-for="@Model.SystemEducation.EducationLocation">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Geçerlilik Süresi(ay)</label>
+                                <input type="text" class="form-control" asp-for="@Model.SystemEducation.ValidityPeriodMonth">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Detaylar</label>
+                                <input type="text" class="form-control" asp-for="@Model.SystemEducation.Description">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-danger" type="button" data-dismiss="modal">İptal </button>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</form>
+
+
+
+@section pageLeveljs{
+
+    <script type="text/javascript">
+        $(window).on('load', function () {
+
+            if (getUrlVars()["new"] === "education") {
+                $('#egModal').modal('show');
+            }
+        });
+
+
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+    </script>
+}
+<script>
+    function showAlertB(id) {
+        swal({
+            title: "UYARI!",
+            text: "Silmek istediğinize emin misiniz?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "İptal",
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Evet",
+            closeOnConfirm: false
+        },
+            function () {
+                deleteBranch(id);
+            });
+    }
+    function showAlertC(id) {
+        swal({
+            title: "UYARI!",
+            text: "Silmek istediğinize emin misiniz?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "İptal",
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Evet",
+            closeOnConfirm: false
+        },
+            function () {
+                deleteDepartment(id);
+            });
+    }
+
+    function deleteBranch(id) {
+        $.get("DeleteBranch?id=" + id, function (data) {
+            if (data.status == null || data.status == undefined) {
+                window.location.href = "Index";
+            }
+            else {
+                swal("Bir Hata oluştu! ");
+            }
+
+        });
+    }
+    function deleteDepartment(id) {
+        $.get("DeleteDepartment?id=" + id, function (data) {
+            if (data.status == null || data.status == undefined) {
+                window.location.href = "Index";
+            }
+            else {
+                swal("Bir Hata oluştu! ");
+            }
+
+        });
+    }
+</script>

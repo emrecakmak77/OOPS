@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <!--Etkinlik Takvimi-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("ActivityCalenders")
+                </div>
+                <!------------------------>
+                <!--Ödeme Talepleri-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("PaymentRequests")
+                </div>
+                <!------------------------>
+                <!--Fazla Mesai Talepleri-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("OvertimeRequests")
+                </div>
+                <!------------------------>
+            </div>
+            <div class="row">
+                
+                <!--Vize Belgesi Talepleri-->
+                <div class="col-md-4">
+<<<<<<< HEAD
+                    <ul class="list-group-item">
+                        <li class="list-group-item  align-items-center">
+                            <span class="caption-subject font-dark bold "> <i class="icon-globe"></i> Vize Belgesi Talepleri </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <p>Onayınızı bekleyen vize belgesi talebi yok.</p>
+                        </li>
+                    </ul>
+=======
+                    @await Component.InvokeAsync("VisaDocumentRequests")
+>>>>>>> muharremeklenecek
+                </div>
+                <!------------------------>
+                <!--İzin Talepleri-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("Permits")
+                </div>
+                <!------------------------>
+                <!--Yaklaşan İzinler-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("IncomingPermits")
+                </div>
+                <!------------------------>
+            </div>
+            <div class="row">
+                <!--Resmi Tatiller-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("PublicHolidays")
+                </div>
+                <!------------------------>
+                <!--Yaklaşan Doğum Günleri-->
+                <div class="col-md-4">
+                    @*@await Component.InvokeAsync("IncomingBirtdate")*@
+                </div>
+                <!------------------------>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+@section pageleveljs{
+    <!-- BEGIN CORE PLUGINS -->
+    @*<script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>*@
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="../assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/flot/jquery.flot.pie.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/flot/jquery.flot.stack.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/flot/jquery.flot.crosshair.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/flot/jquery.flot.axislabels.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
+    <!-- END THEME GLOBAL SCRIPTS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="../assets/pages/scripts/charts-flotcharts.min.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    <script src="../assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
+    <script src="../assets/layouts/layout2/scripts/demo.min.js" type="text/javascript"></script>
+    <script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+    <script src="../assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+    <!-- END THEME LAYOUT SCRIPTS -->
+
+
+}

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<OOPS.DTO.Employee.PermitDTO>
+
+
+<ul class="list-group-item">
+    <li class="list-group-item  align-items-center">
+        <span class="caption-subject font-dark bold "><i class="icon-umbrella"></i> Yaklaşan İzinler </span>
+    </li>
+    @for (int i = 0; i < 3; i++)
+    {
+        @if (Model.Count() > 0 && i < Model.Count() && Model.ToList()[i] != null)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                <div class="row">
+                    <div class="col-md-6">@Model.ToList()[i].StartDate.ToString("dd/MM/yyyy") - @Model.ToList()[i].StartHour</div>
+                    <div class="col-md-6">@Model.ToList()[i].PermitType.PermitTypeName</div>
+                </div>
+            </li>
+
+        }
+    }
+    @*<li class="list-group-item d-flex justify-content-between align-items-center">
+
+        <div class="row">
+            <div class="col-md-12">Yaklaşan izin  bulunmamaktadır.</div>
+        </div>
+    </li>*@
+</ul>

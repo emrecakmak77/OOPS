@@ -1,0 +1,79 @@
+﻿@model OvertimeDTO
+
+<form action="/Overtime/AddOvertime" method="post">
+    <div class="modal fade" id="fazlaMesaiModal" tabindex="-1" role="basic" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Fazla Mesai Talep Et</h4>
+                </div>
+                <div class="modal-body">
+                    <input value="@Model.EmployeeId" name="@Html.NameFor(m => m.EmployeeId)" type="hidden">
+                    <div class="row">
+                        <div class="form-body">
+                            <div class="col-md-12">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Başlangıç Tarihi</label>
+                                        <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                            <input type="text" name="@Html.NameFor(m=>m.StartDate)" class="form-control" >
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Saat</label>
+                                    <div class="input-group">
+                                        <input type="text" name="@Html.NameFor(m=>m.StartHour)" class="form-control timepicker timepicker-24">
+                                        <span class="input-group-btn">
+                                            <button class="btn default" type="button">
+                                                <i class="fa fa-clock-o"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Saat(Süre)</label>
+                                        <select class="form-control" name="@Html.NameFor(m=>m.OvertimeHour)">
+                                            @for (int i = 1; i < 13; i++)
+                                            {
+                                                <option value="@i">@i Saat</option>
+                                            }
+                                            @*<option value="1">1 Saat</option>*@
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Açıklama</label>
+                                        <textarea name="@Html.NameFor(m=>m.Description)" type="text" class="form-control" style="resize:vertical" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn green">Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>

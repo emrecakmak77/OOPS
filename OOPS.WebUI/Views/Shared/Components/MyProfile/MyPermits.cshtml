@@ -1,0 +1,46 @@
+﻿@model List<PermitDTO>
+
+<div class="tab-pane" id="tab_3">
+    <form action="#" class="horizontal-form">
+        <div class="form-body">
+            <div class="caption">
+                <span class="caption-subject font-blue-madison bold ">
+                    İzin Geçmişim
+                </span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="table-scrollable">
+                <table class="table table-hover table-light">
+                    <thead>
+                        <tr>
+                            <th> # </th>
+                            <th> Başlangıç </th>
+                            <th> Bitiş </th>
+                            <th> Süre </th>
+                            <th> İzin Türü </th>
+                            <th> Oluşturma Tarihi </th>
+                            <th> Açıklama </th>
+                            <th> Göreve Başlama Tarihi </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <tr>
+                                <td>@(i+1)</td>
+                                <td>@Model[i].StartDate.ToString("dd.MM.yyyy") - @Model[i].StartHour</td>
+                                <td>@Model[i].EndDate.ToString("dd.MM.yyyy") - @Model[i].EndHour</td>
+                                <td>@(Model[i].EndDate-Model[i].StartDate) </td>
+                                <td>@Model[i].PermitType.PermitTypeName</td>
+                                <td>@Model[i].CreateDate.ToString("dd.MM.yyyy")</td>
+                                <td>@Model[i].Description</td>
+                                <td>@Model[i].StartWorkDate.ToString("dd.MM.yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>

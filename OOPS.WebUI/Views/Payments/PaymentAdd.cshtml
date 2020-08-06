@@ -1,0 +1,72 @@
+﻿@model PaymentDTO
+
+    <form action="/Payments/PaymentAdd" method="post">
+        <div class="modal fade" id="harcamaModal" tabindex="-1" aria-hidden="true">
+            <input type="hidden" asp-for="EmployeeId" />
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Harcama Ekle</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-body">
+                                @*<div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <button class="btn blue btn-block btn-outline ">Fiş Ekle</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <form action="~/assets/global/plugins/dropzone/upload.php" class="dropzone dropzone-file-area" id="my-dropzone" style="width: 535px; margin-top: 4px;">
+                                            <h6 class="sbold">Fişleri Sürükleyin Buraya Bırakın veya Seçin</h6>
+
+                                        </form>
+                                    </div>
+                                </div>*@
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Tutar</label>
+                                            <input type="number" class="form-control" name="@Html.NameFor(m=>m.Amount)"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Tarih </label>
+                                            <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                <input type="text" name="@Html.NameFor(m=>m.PaymentDate)" class="form-control">
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Açıklama</label>
+                                            <textarea name="@Html.NameFor(m=>m.Description)" class="form-control" style="resize:vertical" rows="1"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                        <button type="submit" class="btn green">Kaydet</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </form>

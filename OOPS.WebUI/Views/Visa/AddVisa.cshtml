@@ -1,0 +1,131 @@
+﻿@model OOPS.DTO.Static.VisaDocumentRequestDTO
+
+    <form action="/Visa/AddVisa" method="post">
+        <div class="modal fade" id="vizeBelgeModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Vize Belgesi Talebi Ekle</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input name="@Html.NameFor(m=>m.EmployeeId)" value="@Model.EmployeeId" type="hidden" />
+                        <div class="row">
+                            <div class="form-body">
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Son Teslim Tarihi</label>
+                                            <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                <input type="text" name="@Html.NameFor(m=>m.DeadlineDate)" class="form-control" >
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Saat</label>
+                                        <div class="input-group">
+                                            <input type="text" name="@Html.NameFor(m=>m.DeadlineTime)" class="form-control timepicker timepicker-24">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-clock-o"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Gidilecek Ülke</label>
+                                            <div class="form-group">
+                                                <input type="text" name="@Html.NameFor(m=>m.TripCountry)" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Başlangıç Tarihi</label>
+                                            <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                <input type="text" name="@Html.NameFor(m=>m.TripStartDate)" class="form-control" >
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Saat</label>
+                                        <div class="input-group">
+                                            <input type="text" name="@Html.NameFor(m=>m.TripStartTime)" class="form-control timepicker timepicker-24">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-clock-o"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Bitiş Tarihi</label>
+                                            <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                <input type="text"  name="@Html.NameFor(m=>m.TripEndDate)" class="form-control" >
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Saat</label>
+                                        <div class="input-group">
+                                            <input type="text" name="@Html.NameFor(m=>m.TripEndTime)" class="form-control timepicker timepicker-24">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-clock-o"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Açıklama</label>
+                                            <textarea name="@Html.NameFor(m=>m.Description)" class="form-control" style="resize:vertical" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @await Component.InvokeAsync("VisaTypes")
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                        <button type="submit" class="btn green">Kaydet</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </form>

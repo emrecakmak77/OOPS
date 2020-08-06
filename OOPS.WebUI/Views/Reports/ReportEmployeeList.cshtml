@@ -1,0 +1,35 @@
+﻿@model List<EmployeeDTO>
+
+    <div class="caption">
+        <i class="icon-bubble font-dark hide"></i>
+        <span class="caption-subject font-hide bold uppercase"> Çalışanlar Listesi </span>
+    </div>
+    <div class="portlet-body">
+        <div class="table-scrollable">
+            <table class="table table-hover table-light">
+                <thead>
+                    <tr>
+                        <th> # </th>
+                        <th> Adı </th>
+                        <th> Soyadı </th>
+                        <th> Telefon(iş) </th>
+                        
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    { 
+                    <tr>
+                        <td>@(i+1)</td>
+                        <td>@Model[i].Name</td>
+                        <td>@Model[i].Surname </td>
+                        <td>@Model[i].PhoneBusiness </td>
+                        <td></td>
+                    </tr>
+                    }
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>

@@ -1,0 +1,309 @@
+﻿@model UserDTO
+
+    <div class="profile-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet light ">
+                    <div class="portlet-title tabbable-line">
+                        <div class="caption caption-md">
+                            <i class="icon-globe theme-font hide"></i>
+                            <span class="caption-subject font-blue-madison bold uppercase">İZİNLER</span>
+                        </div>
+                        <ul class="nav nav-tabs">
+
+                            <li class="active">
+                                <a href="#tab_3" data-toggle="tab">İzinler </a>
+                            </li>
+                            <li>
+                                <a href="#tab_4" data-toggle="tab">Raporlar</a>
+                            </li>
+                            <li>
+                                <a href="#tab_5" data-toggle="tab">Kurallar</a>
+                            </li>
+                            <li>
+                                <a href="#tab_6" data-toggle="tab">Onay Süreçleri</a>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <!-- BAŞ GENEL INFO TAB -->
+                            <!-- SON GENEL INFO TAB -->
+                            <!-- BAŞ KARIYER INFO TAB -->
+                            <!-- SON KARIYER INFO TAB -->
+                            <!-- BAŞ KISISEL BILGILER INFO TAB -->
+                            @*<div class="tab-pane active" id="tab_3">
+            <form action="#" class="horizontal-form">
+                <div class="form-body">
+                    <div class="caption">
+                        <span class="caption-subject font-blue-madison bold ">
+                            İzinler
+                        </span>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="table-scrollable">
+                            <table class="table table-hover table-light">
+                                <thead>
+                                    <tr>
+                                        <th> # </th>
+                                        <th> Ad </th>
+                                        <th> Soyad </th>
+                                        <th> Türü </th>
+                                        <th> Gün </th>
+                                        <th> Başlangıç</th>
+                                        <th> Bitiş </th>
+                                        <th> Oluşturulma Tarihi </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            Ahmet
+                                        </td>
+
+                                        <td>
+                                            Taş
+                                        </td>
+                                        <td>
+                                            Askerlik
+                                        </td>
+                                        <td>
+                                            30
+                                        </td>
+                                        <td>
+                                         15.06.2020
+
+                                        </td>
+                                        <td>
+                                            15.07.2020
+                                        </td>
+                                        <td>
+                                            10.06.2020
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    /row-üsttekinin içine yaz
+                </div>
+
+            </form>
+        </div>*@
+                            @await Component.InvokeAsync("MyPermits", new { id = Model.Id })
+                            <!-- SON KISISEL BILGILER INFO TAB -->
+                            <!-- BAŞ DIGER BILGILER INFO TAB -->
+                            <div class="tab-pane" id="tab_4">
+                                <form action="#" class="horizontal-form">
+                                    <div class="form-body">
+                                        <div class="caption">
+                                            <span class="caption-subject font-blue-madison bold ">
+                                                Raporlar
+                                            </span>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="table-scrollable">
+                                                <table class="table table-hover table-light">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> # </th>
+                                                            <th> Ad </th>
+                                                            <th> Soyad </th>
+                                                            <th> Kimlik Numarası </th>
+                                                            <th> Şirket </th>
+                                                            <th> Şube</th>
+                                                            <th> Departman </th>
+                                                            <th> Unvan  </th>
+                                                            <th> İşe Giriş Tarihi </th>
+                                                            <th>Ekstra İzin Günleri</th>
+                                                            <th>Çalışma Durumu</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                Mehmet
+                                                            </td>
+                                                            <td>
+                                                                Taş
+                                                            </td>
+                                                            <td>
+                                                                147852963
+                                                            </td>
+                                                            <td>
+                                                                BilgeAdam
+                                                            </td>
+                                                            <td>
+                                                                İzmir
+
+                                                            </td>
+                                                            <td>
+                                                                Bilgi İşlem
+                                                            </td>
+                                                            <td>
+                                                                Takım Lideri
+                                                            </td>
+                                                            <td>
+                                                                15.05.2015
+                                                            </td>
+                                                            <td>
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                Aktif
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--/row-üsttekinin içine yaz-->
+                                    </div>
+
+                                </form>
+                            </div>
+                            <!-- SON DIGER BILGILER INFO TAB -->
+                            <!-- BAŞ IZINLER INFO TAB -->
+                            <div class="tab-pane" id="tab_5">
+                                <form action="#" class="horizontal-form">
+                                    <div class="form-body">
+                                        <div class="caption">
+                                            <span class="caption-subject font-blue-madison bold ">
+                                                Kurallar
+                                            </span>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="table-scrollable">
+                                                <table class="table table-hover table-light">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> Ad </th>
+                                                            <th> İzin Türleri </th>
+                                                            <th> Çalışan Sayısı </th>
+                                                            <th> Açıklma  </th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Örnek Türk İş Kanunu Kuralı
+                                                            </td>
+                                                            <td>
+                                                                13 tür
+                                                            </td>
+                                                            <td>
+                                                                21 çalışan
+                                                            </td>
+                                                            <td>
+                                                                İzin kuralı ve türleri Türk İş Kanunu'nu temel almaktadır.
+                                                            </td>
+
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--/row-üsttekinin içine yaz-->
+                                    </div>
+
+                                </form>
+                            </div>
+                            <!-- SON IZINLER INFO TAB -->
+                            <!-- BAŞ ODEMELER INFO TAB -->
+                            <div class="tab-pane" id="tab_6">
+                                <form action="#" class="horizontal-form">
+                                    <div class="form-body">
+                                        <div class="caption">
+                                            <span class="caption-subject font-blue-madison bold ">
+                                                Onay Süreçleri
+                                            </span>
+                                            <button type="button" class="btn green  btn-circle btn pull-right"
+                                                    data-toggle="modal" data-target="#izinModal">
+                                                Yeni Süreç Ekle
+                                            </button>
+                                        </div>
+                                        <div class="modal fade" id="izinModal" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                        <h4 class="modal-title">Yeni Süreç Ekle</h4>
+
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <label> Süreç Adı</label>
+                                                        <input type="text" class="form-control" placeholder="Örn:Yıllık İzin Onay Süreci">
+
+                                                        <label>Onaylayacak Kişi veya Kişiler</label>
+                                                        <select class="form-control">
+                                                            <option>İnsan Kaynakları</option>
+                                                            <option>Bilgi İşlem</option>
+                                                            <option>Muhasebe</option>
+                                                        </select>
+
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+                                                        <button type="button" class="btn green">Kaydet</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="table-scrollable">
+                                                <table class="table table-hover table-light">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> # </th>
+                                                            <th> Süreç Adı </th>
+                                                            <th> Onaylayacak Kişi veya Kişiler </th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                Yıllık İzin Onay Süreci
+                                                            </td>
+                                                            <td>
+                                                                İnsan Kaynakları
+                                                            </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--/row-üsttekinin içine yaz-->
+                                    </div>
+
+                                </form>
+                            </div>
+                            <!-- SON ODEMELER INFO TAB -->
+                            <!-- BAŞ ZIMMETLER INFO TAB -->
+                        </div>
+                    </div>
+                    <!-- END PROFILE CONTENT -->
+                </div>
+            </div>
+        </div>
+    </div>
+

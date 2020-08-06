@@ -1,0 +1,615 @@
+﻿@model EmployeeDTO
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section pageLevelcss{
+    <link href="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+}
+
+@section pageLevelcssStyle{
+    <link href="../assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PROFILE SIDEBAR -->
+        <div class="profile-sidebar">
+            <div class="profile-sidebar">
+                <!-- PORTLET MAIN -->
+                <div class="portlet light profile-sidebar-portlet ">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic">
+                        <img src="../assets/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+                    </div>
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">  </div>
+                        <div class="profile-usertitle-job"> </div>
+                    </div>
+                    <div class="portlet light ">
+                        <!-- STAT -->
+                        <!-- END STAT -->
+                        <div>
+                            <div class="portlet-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"> Şube</th>
+                                                <th scope="col"> Departman </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table ">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"> Ünvan</th>
+                                                <th scope="col"> Şirket</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"> E-Posta (İş)</th>
+                                                <th scope="col"> İş Telefonu </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+                    <!-- SIDEBAR BUTTONS -->
+                    <!-- END SIDEBAR BUTTONS -->
+                    <!-- SIDEBAR MENU -->
+                    <!-- END MENU -->
+                </div>
+                <!-- END PORTLET MAIN -->
+                <!-- PORTLET MAIN -->
+                <!-- END PORTLET MAIN -->
+            </div>
+            <!-- END PORTLET MAIN -->
+            <!-- PORTLET MAIN -->
+            <!-- END PORTLET MAIN -->
+        </div>
+        <!-- END BEGIN PROFILE SIDEBAR -->
+        <!-- BEGIN PROFILE CONTENT -->
+        <div class="profile-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light ">
+                        <div class="portlet-title tabbable-line">
+                            <div class="caption caption-md">
+                                <i class="icon-globe theme-font hide"></i>
+                                <span class="caption-subject font-blue-madison bold uppercase"> Hesap Bilgileri </span>
+                            </div>
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab_1" data-toggle="tab">Genel</a>
+                                </li>
+                                @*<li class="disabled">
+                                    <a>Kariyer</a>
+                                </li>
+                                <li class="disabled">
+                                    <a>Kişisel Bilgiler</a>
+                                </li>
+                                <li class="disabled">
+                                    <a>Diğer Bilgiler</a>
+                                </li>*@
+                            </ul>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="tab-content">
+                                <!-- BAŞ GENEL INFO TAB -->
+                                <div class="tab-pane active" id="tab_1">
+                                    <form asp-action="AddEmployee" method="post" class="horizontal-form">
+                                        <div class="form-body">
+
+                                            <!--Genel Bilgiler-->
+                                            <h3 class="form-section">Genel Bilgiler</h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Ad</label>
+                                                        <input type="text" asp-for="Name" class="form-control">
+                                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Soyad</label>
+                                                        <input type="text" asp-for="Surname" class="form-control">
+                                                        <span asp-validation-for="Surname" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">E-Posta</label>
+                                                        <input type="text" asp-for="EmailBusiness" class="form-control">
+                                                        <span asp-validation-for="EmailBusiness" class="text-danger"></span>
+
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Ünvan</label>
+                                                        <input type="text" asp-for="Title" class="form-control">
+                                                        <span asp-validation-for="Title" class="text-danger"></span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Telefon (İş)</label>
+                                                        <input type="text" asp-for="PhoneBusiness" class="form-control">
+                                                        <span asp-validation-for="PhoneBusiness" class="text-danger"></span>
+
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Telefon (Kişisel)</label>
+                                                        <input type="text" asp-for="PhonePersonal" class="form-control">
+                                                        <span asp-validation-for="PhonePersonal" class="text-danger"></span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Sözleşme Türü</label>
+                                                        <select class="form-control" asp-for="ContractTypeID" asp-items="ViewBag.ContractType">
+                                                            <option value="">Seçiniz</option>
+                                                        </select>
+                                                        <span asp-validation-for="ContractTypeID" class="text-danger"></span>
+
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Erişim Türü</label>
+                                                        <select class="form-control" asp-for="AccessTypeID" asp-items="ViewBag.AccessType">
+                                                            <option value="">Seçiniz</option>
+                                                        </select>
+                                                        <span asp-validation-for="AccessTypeID" class="text-danger"></span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">İşe Başlama Tarihi</label>
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                            <input type="text" class="form-control" asp-for="StartDate">
+
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Sözleşme Bitiş Tarihi</label>
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d"  >
+                                                            <input type="text" class="form-control" asp-for="ContractEndDate">
+
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                        <span asp-validation-for="ContractEndDate" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/row-üstüne yaz-->
+                                        <div class="margiv-top-10">
+                                            <button type="submit" class="btn green btn-circle"> Kaydet </button>
+                                            <a type="button" href="/Employee/List" class="btn default btn-circle"> İptal </a>
+                                        </div>
+                                    </form>
+
+                                </div>
+                                <div class="tab-pane fade" id="tab_2">
+                                    <div action="#" class="horizontal-form">
+                                        <div class="portlet light ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <span class="caption-subject font-blue-madison bold">
+                                                        <i class="fa fa-user"></i>
+                                                        Pozisyon
+                                                    </span>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                        <label class="btn sbold green btn-outline btn-circle btn-sm">
+                                                            <input type="radio" name="options" class="toggle">Pozisyon Ekle
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover table-light">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> Başlangıç </th>
+                                                                <th> Bitiş </th>
+                                                                <th> Çalışma Şekli </th>
+                                                                <th> Şirket </th>
+                                                                <th> Şube </th>
+                                                                <th> Departman </th>
+                                                                <th> Unvan </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div action="#" class="horizontal-form">
+                                        <div class="portlet light ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <span class="caption-subject font-blue-madison bold">
+                                                        <i class="fa fa-credit-card"></i>
+                                                        Maaş
+                                                    </span>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                        <label class="btn sbold green btn-outline btn-circle btn-sm">
+                                                            <input type="radio" name="options" class="toggle">Maaş Ekle
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover table-light">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> Geçerlilik Başlangıç Tarihi </th>
+                                                                <th> Tutar </th>
+                                                                <th> Ödeme Düzeni </th>
+                                                                <th> Ek Ödemeler </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td> <i class="fa fa-try" /> </td>
+                                                                <td> Bürüt </td>
+                                                                <td> - </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab_3">
+                                    <form action="#" class="horizontal-form">
+                                        <div class="form-body">
+                                            <h3 class="form-section">Kişisel Bilgiler</h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Doğum Tarihi</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Kimlik Numarası</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Medeni Hal</label>
+                                                        <select class="form-control">
+                                                            <option value=""></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Cinsiyet</label>
+                                                        <select class="form-control">
+                                                            <option value=""></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Engel Derecesi</label>
+                                                        <select class="form-control">
+                                                            <option value=""></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Uyruğu</label>
+                                                        <select class="form-control">
+                                                            <option value=""></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Çocuk Sayısı</label>
+                                                        <input type="text" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Kan Grubu</label>
+                                                        <select class="form-control">
+                                                            <option value=""></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Eğitim Durumu</label>
+                                                        <select class="form-control">
+                                                            <option value=""></option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Tamamlanan En Yüksek Eğitim Seviyesi</label>
+                                                        <select class="form-control">
+                                                            <option value=""></option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Son Tamamlanan Eğitim Kurumu</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                            </div>
+                                            <div class="margiv-top-10">
+                                                <a href="javascript:;" class="btn green btn-circle"> Kaydet </a>
+                                                <a href="javascript:;" class="btn default btn-circle"> İptal </a>
+                                            </div>
+                                            <!--/row-üsttekinin içine yaz-->
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="tab_4">
+                                    <form action="#" class="horizontal-form">
+                                        <div class="form-body">
+
+
+                                            <!--Adres Bilgileri-->
+                                            <h3 class="form-section">Adres Bilgileri</h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Adres Bilgileri</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Adres (devam)</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Ev Telefonu</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Ülke</label>
+                                                        <select class="form-control">
+                                                            <option value=""></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Şehir</label>
+                                                        <select class="form-control">
+                                                            <option value=""></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Posta Kodu</label>
+                                                        <input type="text" class="form-control"> @*TODO: düzelt*@
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                            </div>
+                                            <!--/row-üstüne yaz-->
+                                            <!--Banka Bilgileri-->
+                                            <h3 class="form-section">Banka Bilgileri</h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Banka Adı</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Hesap Tipi</label>
+                                                        <select class="form-control">
+                                                            <option value=""></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Hesap No</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>IBAN</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                            </div>
+
+
+                                            <!--Acil Durum Bilgileri-->
+                                            <h3 class="form-section">Acil Durum Bilgileri</h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Acil Durumda Aranacak Kişi</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Acil Durumda Aranacak Kişi Yakınlık Derecesi</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Acil Durumda Aranacak Kişi Telefon</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                            </div>
+
+
+                                            <!--Bağlantılar ve Sosyal Medya Hesapları-->
+                                            <h3 class="form-section">Bağlantılar ve Sosyal Medya Hesapları</h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Bağlantı Adı</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Bağlantı Adresi</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="margiv-top-10">
+                                            <a href="javascript:;" class="btn green btn-circle"> Kaydet </a>
+                                            <a href="javascript:;" class="btn default btn-circle"> İptal </a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END PROFILE CONTENT -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section pageLeveljs{
+    <script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+}
+

@@ -1,0 +1,40 @@
+﻿@model List<SystemEducationDTO>
+
+<form>
+    <div class="table-scrollable">
+        <table class="table table-hover table-light">
+            <thead>
+                <tr>
+                    <th>Eğitim adı</th>
+                    <th>Eğitimi veren şirket</th>
+                    <th>Eğitmen</th>
+                    <th>Geçerlilik süresi (ay) </th>
+                    <th>Başlangıç</th>
+                    <th>Bitiş</th>
+                    <th>Verildiği yer</th>
+                    <th>Detaylar</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.EducatorCompany</td>
+                        <td>@item.EducatorName </td>
+                        <td>@item.ValidityPeriodMonth </td>
+                        <td>@item.StartDate </td>
+                        <td>@item.EndDate </td>
+                        <td>@item.EducationLocation</td>
+                        <td>@item.Description  </td>
+                    </tr>
+                }
+
+
+
+            </tbody>
+
+        </table>
+    </div>
+</form>

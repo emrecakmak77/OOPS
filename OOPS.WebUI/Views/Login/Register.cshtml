@@ -1,0 +1,255 @@
+﻿@model RegisterViewModel
+
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>Metronic Admin Theme #2 | User Login 4</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #2 for " name="description" />
+    <meta content="" name="author" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="../assets/pages/css/login-4.min.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <!-- END THEME LAYOUT STYLES -->
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <script src="~/assets/global/plugins/SweetAlert.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    @*<script src="~/ViewController/MainViewController.js"></script>
+        <script src="~/ViewController/Login/LoginController.js"></script>*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @*<script src="../assets/global/scripts/jquery-input-mask-phone-number.js"></script>*@
+    @*<script>
+
+        $(document).ready(function () {
+            $('#PhoneBusiness').usPhoneFormat({
+                format: '(xxx) xxx-xxxx',
+            });
+        });
+
+    </script>*@
+</head>
+<!-- END HEAD -->
+<body class="login">
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+        <a href="/Login/Index" style="text-decoration:none">
+            <h1>OopsHR</h1>
+        </a>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+        <form asp-action="Register" class="login-form" method="post">
+            <h3> @*@sysLanguage.LoginStrings.plc_SingUp*@ </h3>
+            <p> @*@sysLanguage.LoginStrings.plc_enterpersoneldetails*@ </p>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_FullName*@ </label>
+                <div class="input-icon">
+                    <i class="fa fa-font"></i>
+                    <input class="form-control placeholder-no-fix"
+                           type="text"
+                           asp-for="@Model.Name"
+                           placeholder="Ad" />
+                </div>
+                <span asp-validation-for="@Model.Name"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_FullName*@ </label>
+                <div class="input-icon">
+                    <i class="fa fa-font"></i>
+                    <input class="form-control placeholder-no-fix"
+                           type="text"
+                           asp-for="@Model.Surname"
+                           placeholder="Soyad" />
+                </div>
+                <span asp-validation-for="@Model.Surname"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9"> Telefon</label>
+                <div class="input-icon">
+                    <i class="fa fa-phone"></i>
+                    <input class="form-control placeholder-no-fix"
+                           type="tel"
+                           asp-for="@Model.PhoneBusiness"
+                           placeholder="Telefon Girin" />
+                </div>
+                <span asp-validation-for="@Model.PhoneBusiness"></span>
+            </div>
+
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_Email*@ </label>
+                <div class="input-icon">
+                    <i class="fa fa-envelope"></i>
+                    <input class="form-control placeholder-no-fix" 
+                           type="text"
+                           asp-for="@Model.Email"
+                           placeholder="E-Mail" />
+                </div>
+                <span asp-validation-for="@Model.Email"></span>
+            </div>
+
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_Email*@ </label>
+                <div class="input-icon">
+                    <i class="fa fa-user"></i>
+                    <input class="form-control placeholder-no-fix"
+                           type="text"
+                           asp-for="@Model.Title"
+                           placeholder="Unvan" />
+                </div>
+                <span asp-validation-for="@Model.Title"></span>
+            </div>
+
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9"> Company Name </label>
+                <div class="input-icon">
+                    <i class="fa fa-folder"></i>
+                    <input class="form-control placeholder-no-fix"
+                           type="text"
+                           asp-for="@Model.CompanyName"
+                           placeholder="Firma Adı" />
+                </div>
+                <span asp-validation-for="@Model.CompanyName"></span>
+            </div>
+
+            <p> Hesap Detaylarınızı Giriniz: </p>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_username*@ </label>
+                <div class="input-icon">
+                    <i class="fa fa-user"></i>
+                    <input class="form-control placeholder-no-fix" type="text"
+                           autocomplete="off"
+                           placeholder="Kullanıcı Adı"
+                           asp-for="@Model.Username" />
+                </div>
+                <span asp-validation-for="@Model.Username"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_password*@ </label>
+                <div class="input-icon">
+                    <i class="fa fa-lock"></i>
+                    <input class="form-control placeholder-no-fix"
+                           asp-for="@Model.Password"
+                           type="password" autocomplete="off"
+                           placeholder="Şifre" />
+                </div>
+                <span asp-validation-for="@Model.Password"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_retypeyourpassword*@ </label>
+                <div class="controls">
+                    <div class="input-icon">
+                        <i class="fa fa-check"></i>
+                        <input class="form-control placeholder-no-fix"
+                               asp-for="@Model.RePassword"
+                               type="password" autocomplete="off"
+                               placeholder="Şifreyi Tekrar Giriniz" />
+                    </div>
+                    <span asp-validation-for="@Model.RePassword"></span>
+                </div>
+            </div>
+            @*<div class="form-group">
+                    <label class="mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox" name="tnc" /> I agree to the
+                        <a href="javascript:;">Terms of Service </a> &
+                        <a href="javascript:;">Privacy Policy </a>
+                        <span></span>
+                    </label>
+                    <div id="register_tnc_error"> </div>
+                </div>*@
+            <div class="form-actions">
+                <button id="register-back-btn" type="button" class="btn red btn-outline" onclick="location.href='/Login'"> Geri </button>
+                <button type="submit"
+                        id="register-submit-btn"
+                        class="btn green pull-right"
+                        asp-action="Register">
+                    Kayıt Ol !
+                </button>
+            </div>
+        </form>
+        <!-- END LOGIN FORM -->
+        <!-- BEGIN REGISTRATION FORM -->
+        <!-- END REGISTRATION FORM -->
+    </div>
+    <!-- END LOGIN -->
+    <!-- BEGIN COPYRIGHT -->
+    @*<div class="copyright"> 2014 &copy; Metronic - Admin Dashboard Template. </div>*@
+    <br />
+    <br />
+    <!-- END COPYRIGHT -->
+    <!--[if lt IE 9]>
+    <script src="../assets/global/plugins/respond.min.js"></script>
+    <script src="../assets/global/plugins/excanvas.min.js"></script>
+    <script src="../assets/global/plugins/ie8.fix.min.js"></script>
+    <![endif]-->
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
+    <!-- END THEME GLOBAL SCRIPTS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="../assets/pages/scripts/login-4.min.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    <!-- END THEME LAYOUT SCRIPTS -->
+    @*<script src="~/Scripts/Angular1_1_7.js"></script>*@
+    <script src="~/lib/jquery-mask/jquery.mask.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#clickmewow').click(function () {
+                $('#radio1003').attr('checked', 'checked');
+            });
+        })
+
+        maskForPhoneNumber($('#PhoneBusiness'));
+
+    </script>
+</body>
+</html>

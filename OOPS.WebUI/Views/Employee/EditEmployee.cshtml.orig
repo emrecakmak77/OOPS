@@ -1,0 +1,1193 @@
+﻿@model EmployeeModel
+@{
+    ViewData["Title"] = "EditEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section pageLevelcss{
+    <link href="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+}
+
+@section pageLevelcssStyle{
+    <link href="../assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PROFILE SIDEBAR -->
+        <div class="profile-sidebar">
+            <div class="profile-sidebar">
+                <!-- PORTLET MAIN -->
+                <div class="portlet light profile-sidebar-portlet ">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic">
+                        <img src="../assets/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+                    </div>
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">@Model.Employee.Name @Model.Employee.Surname  </div>
+                        <div class="profile-usertitle-job">@Model.Employee.Title </div>
+                    </div>
+                    <div class="portlet light ">
+                        <!-- STAT -->
+                        <!-- END STAT -->
+                        <div>
+                            <div class="portlet-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"> Şube</th>
+                                                <th scope="col"> Departman </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table ">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"> Ünvan</th>
+                                                <th scope="col"> Şirket</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"> E-Posta (İş)</th>
+                                                <th scope="col"> İş Telefonu </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+                    <!-- SIDEBAR BUTTONS -->
+                    <!-- END SIDEBAR BUTTONS -->
+                    <!-- SIDEBAR MENU -->
+                    <!-- END MENU -->
+                </div>
+                <!-- END PORTLET MAIN -->
+                <!-- PORTLET MAIN -->
+                <!-- END PORTLET MAIN -->
+            </div>
+            <!-- END PORTLET MAIN -->
+            <!-- PORTLET MAIN -->
+            <!-- END PORTLET MAIN -->
+        </div>
+        <!-- END BEGIN PROFILE SIDEBAR -->
+        <!-- BEGIN PROFILE CONTENT -->
+        <div class="profile-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light ">
+                        <div class="portlet-title tabbable-line">
+                            <div class="caption caption-md">
+                                <i class="icon-globe theme-font hide"></i>
+                                <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
+                            </div>
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab_1" data-toggle="tab">Genel</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_2" data-toggle="tab">Kariyer</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_3" data-toggle="tab">Kişisel Bilgiler</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_4" data-toggle="tab">Diğer Bilgiler</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_5" data-toggle="tab">İzin</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_6" data-toggle="tab">Ödemeler</a>
+                                </li>
+
+                                <li class="dropdown pull-right">
+                                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                                        Diğer Bilgiler
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li>
+                                            <a href="#tab_1_1" tabindex="-1" data-toggle="tab"> Zimmetler </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab_1_2" tabindex="-1" data-toggle="tab"> Eğitimler </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab_1_3" tabindex="-1" data-toggle="tab"> Dosyalar </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab_1_4" tabindex="-1" data-toggle="tab"> Vize Belgesi Talepleri </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="tab-content">
+                                <!-- BAŞ GENEL INFO TAB -->
+                                <div class="tab-pane active" id="tab_1">
+                                    <form asp-action="EditEmployee" method="post" class="horizontal-form">
+                                        <input type="hidden" asp-for="@Model.Employee.Id" />
+                                        <input type="hidden" asp-for="@Model.Employee.CompanyID" />
+                                        <div class="form-body">
+                                            <!--Genel Bilgiler-->
+                                            <h3 class="form-section">Genel Bilgiler</h3>
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Ad</label>
+                                                        <input type="text" asp-for="@Model.Employee.Name" class="form-control">
+                                                        <span asp-validation-for="@Model.Employee.Name"></span>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Soyad</label>
+                                                        <input type="text" asp-for="@Model.Employee.Surname" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">E-Posta</label>
+                                                        <input type="text" asp-for="@Model.Employee.EmailBusiness" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Ünvan</label>
+                                                        <input type="text" asp-for="@Model.Employee.Title" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Telefon (İş)</label>
+                                                        <input type="text" asp-for="@Model.Employee.PhoneBusiness" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Telefon (Kişisel)</label>
+                                                        <input type="text" asp-for="@Model.Employee.PhonePersonal" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Sözleşme Türü</label>
+                                                        <select class="form-control" asp-for="@Model.Employee.ContractTypeID" asp-items="ViewBag.ContractType">
+                                                            <option>Seçiniz</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Erişim Türü</label>
+                                                        <select class="form-control" asp-for="@Model.Employee.AccessTypeID" asp-items="ViewBag.AccessType">
+                                                            <option>Seçiniz</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">İşe Başlama Tarihi</label>
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                            <input type="text" class="form-control" asp-for="@Model.Employee.StartDate">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Sözleşme Bitiş Tarihi</label>
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" id="datepickersozlesmebitis">
+                                                            <input type="text" class="form-control" asp-for="@Model.Employee.ContractEndDate">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                            </div>
+                                            <!--/row-üstüne yaz-->
+
+                                        </div>
+                                        <div class="margiv-top-10">
+                                            <button type="submit" class="btn green btn-circle"> Kaydet </button>
+                                            <button href="/Employee/List" class="btn default btn-circle"> İptal </button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- SON GENEL INFO TAB -->
+                                <!-- BAŞ KARIYER INFO TAB -->
+                                <div class="tab-pane" id="tab_2">
+                                    <div action="#" class="horizontal-form">
+                                        <div class="portlet light ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <span class="caption-subject font-blue-madison bold">
+                                                        <i class="fa fa-user"></i>
+                                                        Pozisyon
+                                                    </span>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                        <label class="btn sbold green btn-outline btn-circle btn-sm">
+                                                            <a data-toggle="modal" href="#addPosition">
+                                                                <i class="toggle"></i> Pozisyon Ekle
+                                                            </a>
+                                                            @*<input type="radio" name="options" class="toggle" href="#addPosition">Pozisyon Ekle*@
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover table-light">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> Başlangıç </th>
+                                                                <th> Bitiş </th>
+                                                                <th> Çalışma Şekli </th>
+                                                                <th> Şirket </th>
+                                                                <th> Şube </th>
+                                                                <th> Departman </th>
+                                                                <th> Unvan </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @for (int i = 0; i < Model.Employee.EmployeePositions.Count; i++)
+                                                            {
+                                                                <tr>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.EndDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.EmploymentType.EmploymentTypeName </td>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.Company.CompanyName</td>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.CompanyBranch.BranchName</td>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.CompanyDepartment.Name</td>
+                                                                    <td>@Model.Employee.Title</td>
+                                                                </tr>
+                                                            }
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div action="#" class="horizontal-form">
+                                        <div class="portlet light ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <span class="caption-subject font-blue-madison bold">
+                                                        <i class="fa fa-credit-card"></i>
+                                                        Maaş
+                                                    </span>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                        <label class="btn sbold green btn-outline btn-circle btn-sm">
+                                                            <input type="radio" name="options" class="toggle">Maaş Ekle
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover table-light">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> Geçerlilik Başlangıç Tarihi </th>
+                                                                <th> Tutar </th>
+                                                                <th> Ödeme Düzeni </th>
+                                                                <th> Ek Ödemeler </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td> <i class="fa fa-try" /> </td>
+                                                                <td> Bürüt </td>
+                                                                <td> - </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SON KARIYER INFO TAB -->
+                                <!-- BAŞ KISISEL BILGILER INFO TAB -->
+                                <div class="tab-pane" id="tab_3">
+                                    <form asp-action="EditEmployeedetail" method="post" class="horizontal-form">
+                                        <input type="hidden" asp-for="@Model.Employee.Id" />
+                                        <input type="hidden" asp-for="@Model.Employee.CompanyID" />
+                                        <input type="hidden" asp-for="@Model.EmployeeDetail.Id" />
+                                        <input type="hidden" asp-for="@Model.EmployeeDetail.EmployeeID" />
+                                        <div class="form-body">
+                                            <h3 class="form-section">Kişisel Bilgiler</h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Doğum Tarihi</label>
+                                                        <input type="text" asp-for="@Model.EmployeeDetail.BirthDate" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Kimlik Numarası</label>
+                                                        <input type="text" asp-for="@Model.EmployeeDetail.TCKN" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Medeni Hal</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.MaritalStatusID" asp-items="ViewBag.MaritalStatus">
+                                                            <option>Durum seçiniz</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Cinsiyet</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.GenderID" asp-items="ViewBag.Gender">
+                                                            <option>Seçiniz</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Engel Derecesi</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.DisabilitySituationID" asp-items="ViewBag.Disability">
+                                                            <option>Seçiniz</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label" asp-for="@Model">Uyruk</label>
+                                                        <input type="text" asp-for="@Model.EmployeeDetail.Nationality" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Çocuk Sayısı</label>
+                                                        <input type="text" asp-for="@Model.EmployeeDetail.Children" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Kan Grubu</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.BloodGroupID" asp-items="ViewBag.BloodGroup">
+                                                            <option>Seçiniz</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Eğitim Durumu</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.EducationStatusID" asp-items="ViewBag.EducationStatus">
+                                                            <option>Seçiniz</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Tamamlanan En Yüksek Eğitim Seviyesi</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.EducationLevelID" asp-items="ViewBag.EducationLevel">
+                                                            <option>Seçiniz</option>
+                                                        </select>
+                                                    </div>
+                                                    <!--/span-->
+                                                </div>
+
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Son Tamamlanan Eğitim Kurumu</label>
+                                                        <input type="text" asp-for="@Model.EmployeeDetail.LastCompletedEducationalInstitution" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <!--/row-üsttekinin içine yaz-->
+                                            </div>
+                                            <div class="margiv-top-10">
+                                                <button type="submit" class="btn green btn-circle"> Kaydet </button>
+                                                <button href="/Employee/List" class="btn default btn-circle"> İptal </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- SON KISISEL BILGILER INFO TAB -->
+                                <!-- BAŞ DIGER BILGILER INFO TAB -->
+                                <div class="tab-pane" id="tab_4">
+                                    <form asp-action="EditEmployeeOtherInfo" class="horizontal-form">
+                                        <input type="hidden" asp-for="@Model.Employee.Id" />
+                                        <input type="hidden" asp-for="@Model.Employee.CompanyID" />
+                                        <input type="hidden" asp-for="@Model.EmployeeOtherInfo.Id" />
+                                        <input type="hidden" asp-for="@Model.EmployeeOtherInfo.EmployeeID" />
+                                        <div class="form-body">
+                                            <!--Adres Bilgileri-->
+                                            <h3 class="form-section">Adres Bilgileri</h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Adres Bilgileri</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.AdressInfo" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Adres (devam)</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.AdressFull" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Ev Telefonu</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.HomePhone" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Ülke</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeOtherInfo.CountryId" asp-items="ViewBag.Country">
+                                                            <option>Seçiniz</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Şehir</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.CityName" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Posta Kodu</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.PostalCode" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                            </div>
+                                            <!--/row-üstüne yaz-->
+                                            <!--Banka Bilgileri-->
+                                            <h3 class="form-section">Banka Bilgileri</h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Banka Adı</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.BankName" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Hesap Tipi</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeOtherInfo.BankAccountTypeId" asp-items="ViewBag.BankAccountType">
+                                                            <option>Seçiniz</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Hesap No</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.BankAccountNo" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>IBAN</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.IBAN" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                            </div>
+                                            <!--Acil Durum Bilgileri-->
+                                            <h3 class="form-section">Acil Durum Bilgileri</h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Acil Durumda Aranacak Kişi</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.ContactNameforEmergency" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Acil Durumda Aranacak Kişi Yakınlık Derecesi</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.RelationshipforEmergencyContact" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Acil Durumda Aranacak Kişi Telefon</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.NumberforEmergencyContact" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                            </div>
+                                            <!--Bağlantılar ve Sosyal Medya Hesapları-->
+                                            <h3 class="form-section">Bağlantılar ve Sosyal Medya Hesapları</h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Bağlantı Adı</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.SocialMediaConnectionName" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Bağlantı Adresi</label>
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.SocialMediaConnectionAddress" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="margiv-top-10">
+                                            <button type="submit" class="btn green btn-circle"> Kaydet </button>
+                                            <button href="/Employee/List" class="btn default btn-circle"> İptal </button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- SON DIGER BILGILER INFO TAB -->
+                                <!-- BAŞ IZINLER INFO TAB -->
+                                <div class="tab-pane" id="tab_5">
+                                    <div action="#" class="horizontal-form">
+                                        <div class="portlet light ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <span class="caption-subject font-blue-madison bold ">
+                                                        İzinler
+                                                    </span>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                        <div class="col-md-6">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-circle sbold green" data-toggle="modal" href="#izinModal">
+                                                                    İzin Ekle
+                                                                    <i class="fa fa-plus"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        @*<div class="col-md-6">
+                                                            <div class="btn-group pull-right">
+                                                                <button class="btn green btn-circle btn-outline dropdown-toggle" data-toggle="dropdown">
+                                                                    İşlemler
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </button>
+                                                                <ul class="dropdown-menu pull-right">
+                                                                    <li>
+                                                                        <a href="javascript:;">
+                                                                            <i class="fa fa-bolt"></i> Ekstra İzin Günü Ekle
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:;">
+                                                                            <i class="fa fa-paper-plane-o"></i> Yıllık İzin Mütabakat Formu İndir
+                                                                        </a>
+                                                                    </li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>*@
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover table-light">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> # </th>
+                                                                <th> Başlangıç </th>
+                                                                <th> Bitiş </th>
+                                                                <th> Süre </th>
+                                                                <th> İzin Türü </th>
+                                                                <th> Oluşturma Tarihi </th>
+                                                                <th> Açıklama </th>
+                                                                <th> Göreve Başlama Tarihi </th>
+                                                                <th> Durum </th>
+                                                                <th> Etiketler </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @for (int i = 0; i < Model.Employee.EmployeePermits.Count; i++)
+                                                            {
+                                                                <tr>
+                                                                    <td>@(i+1)</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.StartDate.ToString("dd.MM.yyyy") - @Model.Employee.EmployeePermits[i].Permit.StartHour</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.EndDate.ToString("dd.MM.yyyy") - @Model.Employee.EmployeePermits[i].Permit.EndHour</td>
+                                                                    <td>@(Model.Employee.EmployeePermits[i].Permit.EndDate-Model.Employee.EmployeePermits[i].Permit.StartDate) </td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.PermitType.PermitTypeName</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.CreateDate.ToString("dd.MM.yyyy")</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.Description</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.StartWorkDate.ToString("dd.MM.yyyy")</td>
+                                                                    <td>
+                                                                        <span class="label label-sm label-warning">  </span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="label label-sm label-success">  </span>
+                                                                    </td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SON IZINLER INFO TAB -->
+                                <!-- BAŞ ODEMELER INFO TAB -->
+                                <div class="tab-pane" id="tab_6">
+                                    <div action="#" class="horizontal-form">
+
+                                        <div class="portlet light ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <span class="caption-subject font-blue-madison bold ">
+                                                        Ödemeler
+                                                    </span>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                        <div class="col-md-12">
+                                                            <div class="btn-group pull-right">
+                                                                <button class="btn green btn-circle btn-outline dropdown-toggle" data-toggle="modal" href="#harcamaModal">
+                                                                    Ödeme Ekle
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover table-light">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> # </th>
+                                                                <th> Tarih </th>
+                                                                <th> İşlem </th>
+                                                                <th> Tutar </th>
+                                                                <th> Açıklama </th>
+                                                                <th> Durum </th>
+                                                                <th> Ödendi </th>
+                                                                @*<th> Etiketler </th>*@
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @for (int i = 0; i < Model.Employee.EmployeePayments.Count; i++)
+                                                            {
+                                                                <tr>
+                                                                    <td> @(i+1) </td>
+                                                                    <td>
+                                                                        @Model.Employee.EmployeePayments[i].Payment.PaymentDate.ToString("dd.MM.yyyy")
+                                                                    </td>
+                                                                    <td>
+                                                                        Prim
+                                                                    </td>
+                                                                    <td>
+                                                                       @Model.Employee.EmployeePayments[i].Payment.Amount <i class="fa fa-try"> </i>
+                                                                    </td>
+                                                                    <td>
+                                                                        @Model.Employee.EmployeePayments[i].Payment.Description
+                                                                    </td>
+                                                                    <td>
+                                                                        <i class="fa fa-check" style="color:lightseagreen"></i>
+                                                                        Onay Alındı
+                                                                    </td>      
+                                                                    <td>
+                                                                        <i class="fa fa-diamond" style="color:lightseagreen"></i>
+                                                                    </td>
+                                                                    @*<td>
+                                                                        <span class="label label-sm label-success"> Approved </span>
+                                                                    </td>*@
+                                                                </tr>
+                                                            }
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SON ODEMELER INFO TAB -->
+                                <!-- BAŞ ZIMMETLER INFO TAB -->
+                                <div class="tab-pane" id="tab_1_1">
+                                    <div action="#" class="horizontal-form">
+                                        <div class="portlet light ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <span class="caption-subject font-blue-madison bold ">Zimmetler</span>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                        <div class="actions">
+                                                            <button class="btn btn-circle sbold green" data-toggle="modal" href="#debitModal">
+                                                                Zimmet Ekle
+                                                                <i class="fa fa-plus"></i>
+                                                            </button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover table-light">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> # </th>
+                                                                <th> Kategori </th>
+                                                                <th> Seri Numarası </th>
+                                                                <th> Veriliş Tarihi </th>
+                                                                <th> İade Tarihi </th>
+                                                                <th> Açıklama </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @for (int i = 0; i < Model.Employee.EmployeeDebits.Count; i++)
+                                                            {
+                                                                <tr>
+                                                                    <td>@(i + 1)</td>
+                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.DebitCategory</td>
+                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.SerialNumber</td>
+                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.DateOfIssue</td>
+                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.ReturnDate</td>
+                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.Description</td>
+                                                                    <td>
+                                                                        <span class="label label-sm label-warning">  </span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="label label-sm label-success">  </span>
+                                                                    </td>
+                                                                </tr>
+                                                            }
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SON ZIMMETLER INFO TAB -->
+                                <!-- BAŞ EGITIMLER INFO TAB -->
+                                <div class="tab-pane" id="tab_1_2">
+                                    <div action="#" class="horizontal-form">
+                                        <div class="portlet light ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <span class="caption-subject font-blue-madison bold ">Eğitimler</span>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                        <label class="btn sbold green btn-outline btn-circle btn-sm active">
+                                                            <input type="radio" name="options" class="toggle" id="option2">Eğitim Ekle
+                                                        </label>
+                                                        <label class="btn sbold green btn-outline btn-circle btn-sm">
+                                                            <input type="radio" name="options" class="toggle" id="option2">Sistem Geneli Eğitim Oluştur
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover table-light">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> # </th>
+                                                                <th> Eğitim </th>
+                                                                <th> Durumu </th>
+                                                                <th> Tamamlanma Tarihi </th>
+                                                                <th> Değerlendirme </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td> 1 </td>
+                                                                <td> MVC Eğitimi </td>
+                                                                <td> Tamamlandı </td>
+                                                                <td> 01/03/2020 </td>
+                                                                <td>
+                                                                    5
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SON EGITIMLER INFO TAB -->
+                                <!-- BAŞ DOSYALAR INFO TAB -->
+                                <div class="tab-pane" id="tab_1_3">
+                                    <div action="#" class="horizontal-form">
+                                        <div class="portlet light ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <span class="caption-subject font-blue-madison bold ">Dosyalar</span>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                        <label class="btn sbold green btn-outline btn-circle btn-sm active">
+                                                            <input type="radio" name="options" class="toggle" id="option2">Klasör Oluştur
+                                                        </label>
+                                                        <label class="btn sbold green btn-outline btn-circle btn-sm">
+                                                            <input type="radio" name="options" class="toggle" id="option2">Dosya Yükle
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover table-light">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> Dosya Adı </th>
+                                                                <th> Türü </th>
+                                                                <th> Boyut </th>
+                                                                <th> Düzenleme Tarihi </th>
+                                                                <th>   </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td> Önemli Dosyalar </td>
+                                                                <td> Klasör </td>
+                                                                <td> 10 MB </td>
+                                                                <td> 06/03/2020 </td>
+                                                                <td> <a> <i class="fa fa-trash-o"></i> </a> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> OopsHR.html </td>
+                                                                <td> html </td>
+                                                                <td> 2 MB </td>
+                                                                <td> 06/03/2020 </td>
+                                                                <td> <a> <i class="fa fa-trash-o"></i> </a> </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SON DOSYALAR INFO TAB -->
+                                <!-- BAŞ VIZE BELGESI TALEPLERI INFO TAB -->
+                                <div class="tab-pane" id="tab_1_4">
+                                    <div action="#" class="horizontal-form">
+                                        <div class="portlet light ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <span class="caption-subject font-blue-madison bold ">Vize Belgesi Talepleri</span>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                        <button class="btn btn-circle sbold green" data-toggle="modal" href="#vizeBelgeModal">
+                                                            Vize Belgesi Ekle
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover table-light">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> Vize Adı </th>
+                                                                <th> Açıklama </th>
+                                                                <th> Seyahat Başlangıç Tarihi </th>
+                                                                <th> Seyahat Bitiş Tarihi </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @for (int i = 0; i < Model.Employee.EmployeeVisas.Count; i++)
+                                                            {
+                                                                <tr>
+                                                                    <td>@Model.Employee.EmployeeVisas[i].VisaDocumentRequests.VisaType.VisaTypeName</td>
+                                                                    <td>@Model.Employee.EmployeeVisas[i].VisaDocumentRequests.Description</td>
+                                                                    <td>@Model.Employee.EmployeeVisas[i].VisaDocumentRequests.TripStartDate.ToString("dd.MM.yyyy")</td>
+                                                                    <td>@Model.Employee.EmployeeVisas[i].VisaDocumentRequests.TripEndDate.ToString("dd.MM.yyyy")</td>
+                                                                </tr>
+                                                            }
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SON VIZE BELGESI TALEPLERI INFO TAB -->
+                            </div>
+                        </div>
+                        <!-- END PROFILE CONTENT -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--POZİSYON EKLEME POP-UP-->
+<form method="post" action="/Position/AddPosition">
+    <input type="hidden" asp-for="@Model.Employee.Id" />
+    <input type="hidden" asp-for="@Model.Employee.CompanyID" />
+    <div class="modal fade" id="addPosition" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">İzin Talep Et</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-body">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Şirket</label>
+                                        <select class="form-control" asp-for="@Model.Position.CompanyID" asp-items="ViewBag.Companies">
+                                            <option>Seçiniz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Departman </label>
+                                        <select class="form-control" asp-for="@Model.Position.CompanyDepartmentID" asp-items="ViewBag.CompanyDepartments">
+                                            <option>Seçiniz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Şube</label>
+                                        <select class="form-control" asp-for="@Model.Position.CompanyBranchID" asp-items="ViewBag.CompanyBranchs">
+                                            <option>Seçiniz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Çalışma Şekli</label>
+                                        <select class="form-control" asp-for="@Model.Position.EmploymentTypeID" asp-items="ViewBag.EmploymentType">
+                                            <option>Seçiniz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Başlangıç Tarihi</label>
+                                        <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                            <input type="text" class="form-control" asp-for="@Model.Position.StartDate" readonly>
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Bitiş Tarihi </label>
+                                        <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                            <input type="text" class="form-control" asp-for="@Model.Position.EndDate" readonly>
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn green">Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</form>
+
+<!-- MAAŞ EKLEME POP-UP-->
+<div class="modal fade" id="addSalary" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">İzin Talep Et</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-body">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Maaş</label><br />
+                                    <label>2.300,00</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Birim</label>
+                                    <select class="form-control">
+                                        <option>TL</option>
+                                        <option>EUR</option>
+                                        <option>USD</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Geçerlilik Başlangıç Tarihi </label>
+                                    <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                        <input type="text" class="form-control" readonly>
+                                        <span class="input-group-btn">
+                                            <button class="btn default" type="button">
+                                                <i class="fa fa-calendar"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Maaş Periyodu</label>
+                                    <select class="form-control">
+                                        <option>AYLIK</option>
+                                        <option>HAFTALIK</option>
+                                        <option>GÜNLÜK</option>
+                                        <option>SAATLİK</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                    <button type="button" class="btn green">Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>
+
+
+<partial name="../Permit/AddPermit" model="new PermitDTO() { EmployeeId = Model.Employee.Id}" />
+<partial name="../Debit/AddDebit" model="new DebitDTO() { EmployeeId = Model.Employee.Id}" />
+<partial name="../Visa/AddVisa" model="new OOPS.DTO.Static.VisaDocumentRequestDTO() { EmployeeId = Model.Employee.Id }" />
+<<<<<<< HEAD
+<partial name="../Overtime/AddOvertime" model=" new OvertimeDTO() { EmployeeId = Model.Employee.Id }" />
+=======
+<partial name="../Payments/PaymentAdd" model="new PaymentDTO() { EmployeeId = Model.Employee.Id}" />
+>>>>>>> origin/Backup
+
+
+@section pageLeveljs{
+    <script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script>
+
+        $('#datepickersozlesmebitis').datepicker({
+            pickerPosition: 'top-left'
+        });
+
+    </script>
+}

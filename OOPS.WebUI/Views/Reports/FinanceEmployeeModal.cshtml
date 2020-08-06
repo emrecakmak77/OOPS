@@ -1,0 +1,36 @@
+﻿
+    <form action="/Reports/EmployeeFinance" method="post">
+        <div class="modal fade" id="FinanceEmployeeModal" tabindex="-1" role="basic" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Rapor Oluşturun</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-body">
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">Rapor Seçiniz</label>
+                                            <select name="FinanceEmployeeId" class="form-control">
+                                                <option value="1">Rapor Seçiniz</option>
+                                                <option value="2">Maaş Bilgileri</option>
+                                                @*<option value="3">Aylık Sabit Maliyet Raporu</option>
+                                                <option value="4">Diğer Ödeme Seçenekleri</option>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn green">Oluştur</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>

@@ -1,0 +1,6 @@
+﻿@model IEnumerable<OOPS.DTO.Static.EducationLevelDTO>
+
+@foreach (var item in Model)
+{
+    <option value="@item.Id" selected>@item.EducationLevelName</option>
+}

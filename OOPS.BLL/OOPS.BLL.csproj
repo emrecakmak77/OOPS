@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Concreate\StaticConcreate\EmployeDetailService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OOPS.Core\OOPS.Core.csproj" />
+    <ProjectReference Include="..\OOPS.DTO\OOPS.DTO.csproj" />
+    <ProjectReference Include="..\OOPS.MapConfig\OOPS.MapConfig.csproj" />
+    <ProjectReference Include="..\OOPS.Model\OOPS.Model.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<OOPS.DTO.Static.VisaTypeDTO>
+
+    <div class="form-group">
+        <label class="control-label">Vize Türü</label>
+        <select name="VisaTypeId" class="form-control">
+            @foreach (var item in Model)
+            {
+                <option value="@item.Id">@item.VisaTypeName</option>
+            }
+
+        </select>
+    </div>

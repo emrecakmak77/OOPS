@@ -1,0 +1,19 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+<<<<<<< HEAD
+    "OOPSEntites": "Server=.;Database=OOPSDB;Trusted_Connection=True;Integrated Security=True;"
+=======
+    "OOPSEntites": "Server=DESKTOP-9KID3J7\\SQLEXPRESS;Database=OOPSDB;Trusted_Connection=True;Integrated Security=True;"
+>>>>>>> muharremeklenecek
+  }
+}
+
+//DESKTOP-1HUGSF0\\SQLEXPRESS

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<OOPS.DTO.Static.CityDTO>
+
+@foreach (var item in Model)
+{
+
+    <option value="@item.Id" selected>@item.Name</option>
+
+}

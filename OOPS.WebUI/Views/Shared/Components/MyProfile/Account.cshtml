@@ -1,0 +1,146 @@
+﻿@model EmployeeDTO
+
+<div class="tab-pane active" id="tab_1">
+    <form action="#" class="horizontal-form">
+        <div class="form-body">
+            <!--Genel Bilgiler-->
+            <h3 class="form-section">Genel Bilgiler</h3>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <img id="myImg" class="img-circle" alt="" height="125px;">
+                </div>
+
+                <input type='file' />
+
+                <div class="col-md-12">
+                    <h3 class="text-md-right">@Model.Name @Model.Surname</h3>
+                    <h5 class="text-md-right">@Model.Title</h5>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Ad</label>
+                        <input type="text" class="form-control" value="@Model.Name">
+                    </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Soyad</label>
+                        <input type="text" class="form-control" value="@Model.Surname">
+                    </div>
+                </div>
+                <!--/span-->
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Pozisyon </label>
+                        <input type="text" class="form-control" value="@Model.Title">
+                    </div>
+                </div>
+                <!--/span-->
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">İş Telefonu </label>
+                        <input type="text" class="form-control" value="@Model.PhoneBusiness">
+                    </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">E-mail(iş)</label>
+                        <input type="text" class="form-control" value="@Model.EmailBusiness" />
+                    </div>
+                </div>
+                <!--/span-->
+                <!--/span-->
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">İşe Başlama Tarihi</label>
+                        <input type="text" class="form-control" value="@Model.StartDate" />
+                    </div>
+                </div>
+                <div class="btn-toolbar">
+                    <button type="button" class="btn btn-circle btn-success btn pull-right">Kaydet</button>
+                    <button type="button" data-toggle="modal" data-target="#passModal" class="btn btn-circle btn-success btn pull-right">Parola Değiştir</button>
+                    <div class="modal fade" id="passModal" tabindex="1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                    <h4 class="modal-title">Rapor Oluşturun</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="form-body">
+                                            <div class="col-md-12">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Mevcut Parola</label>
+                                                        <input type="password" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Yeni Parola</label>
+                                                        <input type="password" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Yeni Parola (tekrar)</label>
+                                                        <input type="password" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+                                    <button type="button" class="btn green">Kaydet</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--/span-->
+            </div>
+            <!--/row-üstüne yaz-->
+        </div>
+    </form>
+</div>
+
+<script>
+    window.addEventListener('load', function () {
+        document.querySelector('input[type="file"]').addEventListener('change', function () {
+            if (this.files && this.files[0]) {
+                var img = document.querySelector('img');  // $('img')[0]
+                img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+                img.onload = imageIsLoaded;
+            }
+        });
+    });
+
+    //function imageIsLoaded() {
+    //    alert(this.src);  // blob url
+    //    // update width and height ...
+    //}
+
+</script>

@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model UserDTO
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <!--Avans Talepleri-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("Advances")
+                </div>
+                <!------------------------>
+                <!--Ödeme Talepleri-->
+                <div class="col-md-4">
+                    @*<div class="list-group-item  align-items-center">
+                            <span class="caption-subject font-dark bold "><i class="icon-umbrella"></i> Ödeme Talepleri </span>
+                        </div>
+                        <div class="table-scrollable">
+                            <table class="table table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th> İsim </th>
+                                        <th> Tutar </th>
+                                        <th> Tarih </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>*@
+                    @await Component.InvokeAsync("Payments", new { companyId = Model.CompanyID })
+                </div>
+                <!------------------------>
+                <!--Fazla Mesai Talepleri-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("Overtimes", new { companyId = Model.CompanyID })
+                </div>
+                <!------------------------>
+            </div>
+            <div class="row">
+
+                <!--Vize Belgesi Talepleri-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("VisaDocumentRequests")
+                </div>
+                <!------------------------>
+                <!--İzin Talepleri-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("Permits", new { companyId = Model.CompanyID })
+
+                </div>
+                <!------------------------>
+                <!--Yaklaşan İzinler-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("IncomingPermits", new { companyId = Model.CompanyID })
+                </div>
+                <!------------------------>
+            </div>
+            <div class="row">
+                <!--Resmi Tatiller-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("PublicHolidays")
+                </div>
+                <!------------------------>
+                <!--Etkinlik Takvimi-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("ActivityCalenders")
+                </div>
+                <!------------------------>
+                <!--Yaklaşan Doğum Günleri-->
+                <div class="col-md-4">
+                    @*@await Component.InvokeAsync("IncomingBirtdate")*@
+                </div>
+                <!------------------------>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

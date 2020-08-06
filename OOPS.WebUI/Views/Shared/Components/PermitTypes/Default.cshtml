@@ -1,0 +1,12 @@
+﻿@model IEnumerable<OOPS.DTO.Static.PermitTypeDTO>
+
+<div class="form-group">
+    <label class="control-label">İzin Türü</label>
+    <select name="PermitTypeID" class="form-control">
+        @foreach (var item in Model)
+        {
+            <option value="@item.Id">@item.PermitTypeName</option>
+        }
+
+    </select>
+</div>

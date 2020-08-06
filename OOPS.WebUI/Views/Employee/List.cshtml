@@ -1,0 +1,108 @@
+﻿@model IEnumerable<EmployeeDTO>
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-12 col-xs-12 col-sm-12">
+    <div class="portlet light">
+
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-bubble font-dark hide"></i>
+                <span class="caption-subject font-hide bold uppercase"> Çalışanlar </span>
+            </div>
+            <div class="actions">
+                <div class="btn-group">
+                    <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        Menü
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a asp-action="AddEmployee">Çalışan Ekle</a>
+                        </li>
+                        @*<li class="divider"> </li>*@
+                        @*<li>
+                            <a href="javascript:;">Option 2</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">Option 3</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">Option 4</a>
+                        </li>*@
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="row">
+                @foreach (var emp in Model)
+                {
+                    <div class="col-md-3">
+
+                        <div class="mt-widget-1">
+                            @*<div class="mt-icon">
+                                <a asp-action="AddEmployee">
+                                    <i class="icon-plus"></i>
+                                </a>
+                            </div>*@
+                            <div class="mt-img">
+                                <img src="../assets/pages/media/users/avatar80_8.jpg">
+                            </div>
+                            <div class="mt-body">
+                                <h3 class="mt-username">@emp.Name @emp.Surname</h3>
+                                <p class="mt-user-title"> @emp.Title </p>
+                                <div class="mt-stats">
+                                    <div class="btn-group btn-group btn-group-justified">
+                                        <a href="/Employee/EditEmployee?id=@emp.Id" class="btn font-green">
+                                            <i class="icon-bubbles"></i> Detay
+                                        </a>
+                                        @*<a href="javascript:;" class="btn font-green">
+                                            <i class="icon-social-twitter"></i>
+                                        </a>*@
+                                        <a  class="btn font-red" onclick="showAlert(@emp.Id)">
+                                            <i class="glyphicon glyphicon-trash">Sil</i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    function showAlert(id) {
+        swal({
+            title: "UYARI!",
+            text: "Bu kaydı silmek istediğinize emin misiniz?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "İptal",
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Evet",
+            closeOnConfirm: false
+        },
+            function () {
+                deleteEmployee(id);
+            });
+    }
+
+    function deleteEmployee(id) {
+        $.get("deleteEmployee?id=" + id, function (data) {
+            if (data.status == null || data.status == undefined) {
+                window.location.href = "List";
+            }
+            else {
+                swal("Hata! " + "(" + data.status + ")", data.message, "error");
+            }
+            
+        });
+    }
+
+</script>

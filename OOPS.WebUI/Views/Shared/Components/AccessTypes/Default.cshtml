@@ -1,0 +1,6 @@
+﻿@model IEnumerable<OOPS.DTO.Static.AccessTypeDTO>
+
+@foreach (var item in Model)
+{
+    <option value="@item.Id" selected>@item.AccessTypeName</option>
+}
